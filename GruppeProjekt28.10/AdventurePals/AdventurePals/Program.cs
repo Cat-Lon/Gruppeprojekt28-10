@@ -30,7 +30,7 @@ namespace AdventurePals
             Console.WriteLine("Hitpoints: " + playerHP);
             Console.WriteLine("Strength: " + playerStrength);
 
-
+            // HER SKAL LOOP kaldes yeet
         }
 
         static int PlayerAttack()
