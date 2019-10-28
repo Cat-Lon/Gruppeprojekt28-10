@@ -8,7 +8,7 @@ namespace AdventurePals
     {
         // Player variables
         private static string playerName;
-        private static int playerHP;
+        private static int playerHP = 0;
         private static int playerStrength;
         private static int playerLevel;
 
@@ -237,8 +237,6 @@ namespace AdventurePals
             }
         }
 
-
-
         /*********************Random Monster Ecounter Function*********************/
         static bool isrunning1 = true;
 
@@ -291,11 +289,8 @@ namespace AdventurePals
                     case "Orc ":
                         Console.WriteLine("The Orc Looks at you with an Arrogant look as it stomps up to you");
                     break;
-
-                }
-                
+                }                
             }
-
 
             return true;
         }
