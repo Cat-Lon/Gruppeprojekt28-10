@@ -12,8 +12,14 @@ namespace AdventurePals
 
         static void Main(string[] args)
         {
+
             Console.WriteLine("Welcome to our game: ADVENTURE PALS\n");
             Menu();
+
+            Console.WriteLine("Welcome to our game: ADVENTURE PALS");
+            
+            MonsterEncounter();
+
         }
 
         //Initializes player stats. TODO Call in Menu somewhere.
@@ -167,6 +173,72 @@ namespace AdventurePals
                 Console.WriteLine("aww okay :(");
             }
         }
+
+
+
+        /*********************Random Monster Ecounter Function*********************/
+        static bool isrunning1 = true;
+
+        static bool MonsterEncounter() //Array randomizer of Monster list
+        {
+            Console.WriteLine("You encounter a monster");
+
+            Random RandomMonster = new Random();
+            string[] MonsterList = { "Slime ", "Goblin ", "Orc "};
+
+            while(isrunning1)
+            {
+                string message = Console.ReadLine();
+                int i = RandomMonster.Next(0, MonsterList.Length);
+                string Youmeet = MonsterList[i];
+
+                if (Youmeet == "Slime ")
+                {
+                    Console.WriteLine("You Encounter a Slime");
+                }
+
+                else if (Youmeet == "Goblin ")
+                {
+                    Console.WriteLine("You encounter a Goblin");
+                }
+
+                else if (Youmeet == "Orc ")
+                {
+                    Console.WriteLine("You encounter an Orc");
+                }
+
+                else
+                {
+                    isrunning1 = false;
+                }
+
+                Console.ReadLine();
+
+                
+                switch (Youmeet) // Switch for deeper description of Monster encounter
+                {
+                    case "Slime ":
+                        Console.WriteLine("The Slime starts oozing towards you in a slow and STEADY PASTE");
+                    break;
+
+                    case "Goblin ":
+                        Console.WriteLine("The Goblin thrusts at you in an angry frenzy");
+                    break;
+                    
+                    case "Orc ":
+                        Console.WriteLine("The Orc Looks at you with an Arrogant look as it stomps up to you");
+                    break;
+
+                }
+                
+            }
+
+
+            return true;
+        }
+
+
+
 
     }
 }
