@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace AdventurePals
 {
@@ -98,14 +99,14 @@ namespace AdventurePals
                 else
                 {
                     Console.WriteLine($"\nGreat! Your character is called:\n" + CharacterName);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\nPlease be patient, game will start shortly!");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Thread.Sleep(1900);
                     CreatePlayer(CharacterName); // Create character and set playname to the user input.
                     IsTrue = false;
                 }
             }
-
-
-
-
 
         }
 
