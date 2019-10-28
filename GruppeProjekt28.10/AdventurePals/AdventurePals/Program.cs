@@ -256,16 +256,19 @@ namespace AdventurePals
                 if (Youmeet == "Slime ")
                 {
                     Console.WriteLine("You Encounter a Slime");
+                    MonsterSlime();
                 }
 
                 else if (Youmeet == "Goblin ")
                 {
                     Console.WriteLine("You encounter a Goblin");
+                    MonsterGoblin();
                 }
 
                 else if (Youmeet == "Orc ")
                 {
                     Console.WriteLine("You encounter an Orc");
+                    MonsterOrc();
                 }
 
                 else
@@ -295,6 +298,30 @@ namespace AdventurePals
             return true;
         }
 
+        /*****************Monster Stats*********************/
+        static bool MonsterSlime()
+        {
+            int SlimeHp = 60;
+            int SlimeStr = 2;
+            Console.WriteLine("The Slime Got " + SlimeHp + " HP \nAnd a strength of " + SlimeStr);
+            return true;
+        }
+
+        static bool MonsterGoblin()
+        {
+            int GoblinHp = 30;
+            int GoblinStr = 3;
+            Console.WriteLine("The Goblin Got " + GoblinHp + " HP \nAnd a strength of " + GoblinStr);
+            return true;
+        }
+
+        static bool MonsterOrc()
+        {
+            int OrcHp = 40;
+            int OrcStr = 6;
+            Console.WriteLine("The Orc Got " + OrcHp + " HP \nAnd a strength of " + OrcStr);
+            return true;
+        }
 
 
 
