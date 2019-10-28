@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace AdventurePals
 {
@@ -9,7 +10,10 @@ namespace AdventurePals
         private static string playerName;
         private static int playerHP;
         private static int playerStrength;
+        private static int playerLevel;
 
+        private int playerExperience;
+        private static List<int> ExperienceList = new List<int> { 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358, 1584, 1833, 2107, 2411, 2746, 3115 };
 
         static void Main(string[] args)
         {
@@ -26,6 +30,7 @@ namespace AdventurePals
             playerName = name;
             playerHP = 50;
             playerStrength = 5;
+            playerLevel = 1;
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nCharacter creation complete!");
@@ -33,12 +38,23 @@ namespace AdventurePals
             Console.WriteLine("Character Name: " + playerName);
             Console.WriteLine("Hitpoints: " + playerHP);
             Console.WriteLine("Strength: " + playerStrength);
+            Console.WriteLine("Level: " + playerLevel + " You need " + ExperienceList[playerLevel-1] + " experience to level up");
+        }
+
+        static void LevelUp()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("LEVEL UP. HVORDAN GØR HAN DET?!?! WOOOOOW!!");
+            playerLevel++;
+            Console.WriteLine("du er nu level" + playerLevel);
         }
 
         static int PlayerAttack()
         {
             return playerStrength;
         }
+
+       
 
         private static void Menu()
         {
