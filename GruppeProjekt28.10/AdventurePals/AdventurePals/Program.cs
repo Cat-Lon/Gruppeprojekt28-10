@@ -6,12 +6,22 @@ namespace AdventurePals
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("Welcome to our game: ADVENTURE PALS");
-            Console.WriteLine("Hello from Poul");
-            Console.WriteLine("hej fra Tommy");
-            Console.WriteLine("Sup bitches -Sincerely William");
-            Console.WriteLine("Wassup fuckers");
+            menu();
+        }
+
+
+
+
+
+
+
+
+
+
+        private static void menu()
+        {
+            Console.WriteLine("Welcome adventurer, please tell me your name: ");
         }
     }
 }
