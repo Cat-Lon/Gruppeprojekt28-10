@@ -42,7 +42,84 @@ namespace AdventurePals
 
             return randomNumber;
         }
+        private static void GetChest() //Prints a randomly selected piece of loot (for now)
+        {
+            Random rnd = new Random();
+            int type = rnd.Next(1, 4);
+            int quality = rnd.Next(1, 5);
+            Console.WriteLine("You have found a chest!\n Do you wish to open it? (y/n)");
+            string userinput = Console.ReadLine();
+            if (userinput == "y")
+            {
+                switch (type)
+                {
+                    case 1:
+                        switch (quality)
+                        {
+                            case 1:
+                                Console.WriteLine("Top notch armor laddie");
+                                break;
+                            case 2:
+                                Console.WriteLine("Not too shabby armor");
+                                break;
+                            case 3:
+                                Console.WriteLine("This armor is held together with glue and hope");
+                                break;
+                        }
 
+                        break;
+                    case 2:
+                        switch (quality)
+                        {
+                            case 1:
+                                Console.WriteLine("This sword is a perfect tool for killing");
+                                break;
+                            case 2:
+                                Console.WriteLine("A perfectly normal sword");
+                                break;
+
+                            case 3:
+                                Console.WriteLine("This sword won't be doing you much good");
+                                break;
+                        }
+                        break;
+                    case 3:
+                        switch (quality)
+                        {
+                            case 1:
+                                Console.WriteLine("A golden apple!");
+                                break;
+
+                            case 2:
+                                Console.WriteLine("A regular apple, quite tasty in fact!");
+                                break;
+
+                            case 3:
+                                Console.WriteLine("A suspicious apple, it's a little dirty but probably still edible");
+                                break;
+                        }
+                        break;
+                    case 4:
+                        switch (quality)
+                        {
+                            case 1:
+                                Console.WriteLine("A legendary helmet!");
+                                break;
+                            case 2:
+                                Console.WriteLine("Standard issue soldier helmet");
+                                break;
+                            case 3:
+                                Console.WriteLine("This hat is not much more than just a piece of leather");
+                                break;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("aww okay :(");
+            }
+        }
 
     }
 }
