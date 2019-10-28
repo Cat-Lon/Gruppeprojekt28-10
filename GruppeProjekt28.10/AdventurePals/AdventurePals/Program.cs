@@ -5,9 +5,9 @@ namespace AdventurePals
     class Program
     {
         // Player variables
-        private string playerName;
-        int playerHP;
-        int playerStrength;
+        private static string playerName;
+        private static int playerHP;
+        private static int playerStrength;
 
 
         static void Main(string[] args)
@@ -17,14 +17,23 @@ namespace AdventurePals
         }
 
         //Initializes player stats. TODO Call in Menu somewhere.
-        void CreatePlayer(string playerName)
+        static void CreatePlayer(string name)
         {
-            this.playerName = playerName;
-            this.playerHP = 50;
-            this.playerStrength = 5;
+            playerName = name;
+            playerHP = 50;
+            playerStrength = 5;
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Character creation complete!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Character Name: " + playerName);
+            Console.WriteLine("Hitpoints: " + playerHP);
+            Console.WriteLine("Strength: " + playerStrength);
+
+            // HER SKAL LOOP kaldes yeet
         }
 
-        int PlayerAttack()
+        static int PlayerAttack()
         {
             return playerStrength;
         }
@@ -32,10 +41,11 @@ namespace AdventurePals
         private static void Menu()
         {
             bool IsTrue = true;
+            string UserName = "";
             Console.WriteLine("Please tell me your name: ");
             while (IsTrue)
             {
-                string UserName = Console.ReadLine();
+                UserName = Console.ReadLine();
                 if (UserName == "")
                 {
                     Console.WriteLine("Dont be foolish, just tell me your name!\n");
@@ -57,6 +67,7 @@ namespace AdventurePals
                 if (UserAnswer == "y")
                 {
                     Console.WriteLine("Fantastic!");
+                    CreatePlayer(UserName); // Create character and set playname to the user input.
                     IsTrue = false;
                 }
                 else if (UserAnswer == "n")
