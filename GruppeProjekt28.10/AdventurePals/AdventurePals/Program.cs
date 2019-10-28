@@ -12,8 +12,8 @@ namespace AdventurePals
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our game: ADVENTURE PALS");
-            menu();
+            Console.WriteLine("Welcome to our game: ADVENTURE PALS\n");
+            Menu();
         }
 
         //Initializes player stats. TODO Call in Menu somewhere.
@@ -29,9 +29,52 @@ namespace AdventurePals
             return playerStrength;
         }
 
-        private static void menu()
+        private static void Menu()
         {
-            Console.WriteLine("Welcome adventurer, please tell me your name: ");
+            bool IsTrue = true;
+            Console.WriteLine("Please tell me your name: ");
+            while (IsTrue)
+            {
+                string UserName = Console.ReadLine();
+                if (UserName == "")
+                {
+                    Console.WriteLine("Dont be foolish, just tell me your name!\n");
+                }
+                else
+                {
+                    Console.WriteLine($"\nHello there " + UserName);
+                    IsTrue = false;
+                }
+            }
+            IsTrue = true;
+            Console.WriteLine("\nDo you want to play?");
+            Console.WriteLine("y/n");
+
+            while (IsTrue)
+            {
+                string UserAnswer = Console.ReadLine();
+
+                if (UserAnswer == "y")
+                {
+                    Console.WriteLine("Fantastic!");
+                    IsTrue = false;
+                }
+                else if (UserAnswer == "n")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid answer!\nType y or n to continue!");
+                }
+            }
+            
+
+
+
+
+
+
         }
 
         
