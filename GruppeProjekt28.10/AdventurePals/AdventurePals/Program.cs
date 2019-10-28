@@ -34,7 +34,14 @@ namespace AdventurePals
             Console.WriteLine("Welcome adventurer, please tell me your name: ");
         }
 
-        
+        static int AdventureObstacle() // Decides what the player run in to next
+        {
+            Random random = new Random();
+
+            int randomNumber = random.Next(1, 101);
+
+            return randomNumber;
+        }
 
 
     }
