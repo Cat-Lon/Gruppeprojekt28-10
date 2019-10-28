@@ -11,6 +11,7 @@ namespace AdventurePals
             Console.WriteLine("Hello from Poul");
             Console.WriteLine("hej fra Tommy");
             Console.WriteLine("Sup bitches -Sincerely William");
+            Console.WriteLine("Wassup fuckers");
         }
     }
 }
