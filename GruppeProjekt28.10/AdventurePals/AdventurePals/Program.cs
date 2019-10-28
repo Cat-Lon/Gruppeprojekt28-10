@@ -15,9 +15,6 @@ namespace AdventurePals
 
             Console.WriteLine("Welcome to our game: ADVENTURE PALS\n");
             Menu();
-
-            Console.WriteLine("Welcome to our game: ADVENTURE PALS");
-            
             MonsterEncounter();
 
         }
@@ -35,8 +32,6 @@ namespace AdventurePals
             Console.WriteLine("Character Name: " + playerName);
             Console.WriteLine("Hitpoints: " + playerHP);
             Console.WriteLine("Strength: " + playerStrength);
-
-
         }
 
         static int PlayerAttack()
@@ -96,7 +91,9 @@ namespace AdventurePals
 
                 if (CharacterName == "")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Give me a valid name!");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
                 else
                 {
