@@ -32,23 +32,26 @@ namespace AdventurePals
         private static void Menu()
         {
             bool IsTrue = true;
-            Console.WriteLine("Please tell me your name: ");
+            Console.WriteLine("Hello there, what is your name? ");
             while (IsTrue)
             {
-                string UserName = Console.ReadLine();
-                if (UserName == "")
+                string PlayerName = Console.ReadLine();
+                if (PlayerName == "")
                 {
-                    Console.WriteLine("Dont be foolish, just tell me your name!\n");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Dont be foolish, tell me your name!\n");
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
                 else
                 {
-                    Console.WriteLine($"\nHello there " + UserName);
+                    Console.WriteLine($"\nHello there " + PlayerName);
                     IsTrue = false;
                 }
             }
+
             IsTrue = true;
-            Console.WriteLine("\nDo you want to play?");
-            Console.WriteLine("y/n");
+            Console.WriteLine("\nDo you want to play out game?");
+            Console.WriteLine("y/n\n");
 
             while (IsTrue)
             {
@@ -56,7 +59,7 @@ namespace AdventurePals
 
                 if (UserAnswer == "y")
                 {
-                    Console.WriteLine("Fantastic!");
+                    Console.WriteLine("\nFantastic!");
                     IsTrue = false;
                 }
                 else if (UserAnswer == "n")
@@ -66,6 +69,24 @@ namespace AdventurePals
                 else
                 {
                     Console.WriteLine("That is not a valid answer!\nType y or n to continue!");
+                }
+            }
+
+            IsTrue = true;
+            Console.WriteLine("What shall we call your character?\n");
+
+            while (IsTrue)
+            {
+                string CharacterName = Console.ReadLine();
+
+                if (CharacterName == "")
+                {
+                    Console.WriteLine("Give me a valid name!");
+                }
+                else
+                {
+                    Console.WriteLine($"\nGreat! Your character is called:\n" + CharacterName);
+                    IsTrue = false;
                 }
             }
             
