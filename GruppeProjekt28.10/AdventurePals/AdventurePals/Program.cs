@@ -113,7 +113,7 @@ namespace AdventurePals
         {
             Random random = new Random();
 
-            int randomNumber = random.Next(1, 101);
+            int randomNumber = random.Next(1, 5);
 
             return randomNumber;
         }
