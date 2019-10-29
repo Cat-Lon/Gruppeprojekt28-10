@@ -34,7 +34,6 @@ namespace AdventurePals
 
             Console.WriteLine("Welcome to our game: ADVENTURE PALS\n");
             Menu();
-            MonsterEncounter();
 
         }
 
@@ -181,23 +180,71 @@ namespace AdventurePals
                     Thread.Sleep(1900);
                     CreatePlayer(CharacterName); // Create character and set playname to the user input.
                     IsTrue = false;
+
+
+                    NextStep();
                 }
             }
 
         }
 
-        static int AdventureObstacle() // Decides what the player runs in to next
+        static void NextStep()
+        {
+            Console.WriteLine("Where would you like to go (west / north / east / south)");
+
+            string input = Console.ReadLine();
+            
+            if(input.ToLower().Trim() == "west")
+            {
+                Console.WriteLine("You go west");
+                AdventureObstacle();
+            }
+            else if (input.ToLower().Trim() == "north")
+            {
+                Console.WriteLine("You go north");
+                AdventureObstacle();
+            }
+            else if (input.ToLower().Trim() == "south")
+            {
+                Console.WriteLine("You go south");
+                AdventureObstacle();
+            }
+            else if (input.ToLower().Trim() == "east")
+            {
+                Console.WriteLine("You go east");
+                AdventureObstacle();
+            }
+        }
+
+        static void AdventureObstacle() // Decides what the player runs in to next
         {
             Random random = new Random();
 
-            int randomNumber = random.Next(1, 5);
+            int randomNumber = random.Next(1, 4);
 
-            return randomNumber;
+            if (randomNumber == 1)
+            {
+                MeetNPC();
+            }
+            else if (randomNumber == 2)
+            {
+                MonsterEncounter();
+            }
+            else if (randomNumber == 3)
+            {
+                GetChest();
+            }
+
         }
 
         static void MeetNPC() // Random NPC that greets you
         {
-            Console.WriteLine("On your path you meet someone");
+            Console.WriteLine("On your path you meet someone, they seem friendly");
+            Console.WriteLine("What do you want to say?");
+            
+            string input = Console.ReadLine();
+
+            Console.WriteLine("You say: " + input);
 
             Random random = new Random();
 
@@ -221,6 +268,8 @@ namespace AdventurePals
                     Console.WriteLine("Idk what the fuck just happened");
                     break;
             }
+
+            NextStep();
         }
         private static void GetChest() //Prints a randomly selected piece of loot (for now)
         {
@@ -583,6 +632,7 @@ namespace AdventurePals
                             Console.WriteLine("Tell William that this happened. cause it's not supposed to");
                                 break;
                     }
+                    NextStep();
                 }
                 else if(userInput == "n")
                 {
@@ -614,18 +664,21 @@ namespace AdventurePals
 
                 if (Youmeet == "Slime ")
                 {
+                    SlimeArt();
                     Console.WriteLine("You Encounter a Slime");
                     MonsterSlime();
                 }
 
                 else if (Youmeet == "Goblin ")
                 {
+                    GoblinArt();
                     Console.WriteLine("You encounter a Goblin");
                     MonsterGoblin();
                 }
 
                 else if (Youmeet == "Orc ")
                 {
+                    OrcArt();
                     Console.WriteLine("You encounter an Orc");
                     MonsterOrc();
                 }
@@ -685,13 +738,13 @@ namespace AdventurePals
 
                     while (isrunningPlayer)
                     {
-                    bool isrunningMonster = true;
+                        bool isrunningMonster = true;
 
                     int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; // randomly  picks a number between chosen range
                     Console.Write("You do " + randomDmg + " amount of dmg");
                     Console.WriteLine();
 
-                    if (MonsterHP < randomDmg) // Lower than varibel 
+                        if (MonsterHP < randomDmg) // Lower than varibel 
                     {
                         Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
 
@@ -732,7 +785,7 @@ namespace AdventurePals
                                 isrunningPlayer = false;
                                 isrunningMonster = false;
 
-                            GameOver();
+                                GameOver();
                             }
 
                             else if (playerHP == randomDmg2) // Equal varibel 
@@ -740,6 +793,8 @@ namespace AdventurePals
                                 Console.WriteLine("\nYou are Defeated ");
                                 isrunningPlayer = false;
                                 isrunningMonster = false;
+
+                                GameOver();
                             }
 
                             else if (playerHP > randomDmg2)
@@ -753,11 +808,14 @@ namespace AdventurePals
                                 isrunningMonster = false;
                             }
 
+                        }
                     }
                 }
-            }
 
-        }
+            
+
+
+            }
 
         /**************Attack Switch****************/
         static bool AttackSwitch()
@@ -778,7 +836,7 @@ namespace AdventurePals
                     Console.WriteLine("You Run away");
                     Console.WriteLine("But You wont get far");
                     Console.WriteLine("");
-                    MonsterEncounter();
+                    NextStep();
                     break;
 
                 default:
@@ -789,8 +847,68 @@ namespace AdventurePals
             return true;
         }
 
+        /*************************Monster Art*****************/
+        private static void SlimeArt()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("          //////////");
+            Console.WriteLine("       ///          //");
+            Console.WriteLine("   //                ///");
+            Console.WriteLine("    //////     `          // ///");
+            Console.WriteLine("      //     <o>     /        /");
+            Console.WriteLine("      //         ///       /   ////");
+            Console.WriteLine("       /   ///// / // <O>>      ///");
+            Console.WriteLine("       //          //     // ///");
+            Console.WriteLine("        ///         ///////    //   ");
+            Console.WriteLine("          ////       /         ///  ");
+            Console.WriteLine("            //     // /     ///  //");
+            Console.WriteLine("             /  ///   /////     //");
+            Console.WriteLine("             ///        /////");
 
-      
+            Console.WriteLine("");
+        }
+
+        private static void GoblinArt()
+
+        {
+            Console.WriteLine("");
+            Console.WriteLine("    ///////                                 ///////  ");
+            Console.WriteLine("       // /////          /////        /////// //     ");
+            Console.WriteLine("        //    //////   //     ////  //       //      ");
+            Console.WriteLine("         //         //     \\  ///     </  //      ");
+            Console.WriteLine("           ///      /       \\/           //         ");
+            Console.WriteLine("              // /      \\o>   <O//    //        ");
+            Console.WriteLine("                //// `                //             ");
+            Console.WriteLine("                    //     -  //       /             ");
+            Console.WriteLine("                      ///            //              ");
+            Console.WriteLine("                         // /---V  //                ");
+            Console.WriteLine("                         //      //                  ");
+            Console.WriteLine("                            // //                    ");
+            Console.WriteLine("                                                     ");
+            Console.WriteLine("");
+        }
+
+        private static void OrcArt()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("                  //////                     ");
+            Console.WriteLine("              ////     //////                ");
+            Console.WriteLine("            //                //             ");
+            Console.WriteLine("      //  //   /___________//    //// //     ");
+            Console.WriteLine("       /////      o     o        ////        ");
+            Console.WriteLine("         //    --------------     //         ");
+            Console.WriteLine("         ///         /\\           //        ");
+            Console.WriteLine("          //       (   ))        //          ");
+            Console.WriteLine("         // /\\             /\\      //      ");
+            Console.WriteLine("        ///////////////////////       //     ");
+            Console.WriteLine("         //                  //      //      ");
+            Console.WriteLine("          //                         //      ");
+            Console.WriteLine("           //                     //         ");
+            Console.WriteLine("            ////////////////////             ");
+            Console.WriteLine("");
+        }
+
+
 
 
     }
