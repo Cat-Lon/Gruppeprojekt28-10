@@ -142,8 +142,11 @@ namespace AdventurePals
         {
             Random rnd = new Random();
             int type = rnd.Next(1, 6);
-            int quality = rnd.Next(1, 4);
+            int quality = rnd.Next(1, 101);
             bool pResponse = false;
+            bool equipCheck = true;
+            int armor;
+            int weaponDamage;
             Console.WriteLine("You have found a chest!\n Do you wish to open it? (y/n)");
             while (pResponse != true)
             {
@@ -154,74 +157,341 @@ namespace AdventurePals
                     Console.WriteLine("You got!");
                     switch (type)
                     {
-                        case 1:
-                            switch (quality)
+                        case 1: //Chestplates
+                            if (quality >= 80)
                             {
-                                case 1:
-                                    Console.WriteLine("Terrions plate!");
-                                    break;
-                                case 2:
-                                    Console.WriteLine("Standard iron armor");
-                                    break;
-                                case 3:
-                                    Console.WriteLine("Leather Armor held together with glue and hope");
-                                    break;
+                                Console.WriteLine("Terrions plate!");
+                                int rStat = rnd.Next(1, 21);
+                                armor = 25 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //ChestArmor = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality >= 45)
+                            {
+                                Console.WriteLine("Standard iron armor");
+                                int rStat = rnd.Next(1, 11);
+                                armor = 10 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerArmor = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality > 45) {
+                                Console.WriteLine("Leather Armor held together with staples and hope");
+                                int rStat = rnd.Next(1, 6);
+                                armor = 5 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerArmor = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
                             }
                             break;
-                        case 2:
-                            switch (quality)
+                        case 2: //weapons
+                            if (quality >= 80)
                             {
-                                case 1:
-                                    Console.WriteLine("The Sword Of Kalameet!");
-                                    break;
-                                case 2:
-                                    Console.WriteLine("A perfectly normal sword");
-                                    break;
-                                case 3:
-                                    Console.WriteLine("A broken straight sword");
-                                    break;
+                                Console.WriteLine("The Sword of Kalameet!");
+                                int rStat = rnd.Next(1, 21);
+                                weaponDamage = 25 + rStat;
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerWeaponDamage = weaponDamage;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality >= 45)
+                            {
+                                Console.WriteLine("A sharp iron sword");
+                                int rStat = rnd.Next(1, 21);
+                                weaponDamage = 25 + rStat;
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerWeaponDamage = weaponDamage;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality > 45)
+                            {
+                                Console.WriteLine("A broken straight sword");
+                                int rStat = rnd.Next(1, 6);
+                                weaponDamage = 5 + rStat;
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerWeapon damage = WeaponDamage;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
                             }
                             break;
-                        case 3:
+
+                        case 3: //apples 
                             switch (quality)
                             {
                                 case 1:
                                     Console.WriteLine("A golden apple!");
+                                    //gApple++
                                     break;
                                 case 2:
                                     Console.WriteLine("A regular apple, quite tasty in fact!");
+                                    //apple++
                                     break;
                                 case 3:
-                                    Console.WriteLine("A suspicious apple, it's a little dirty but probably still edible...");
+                                    Console.WriteLine("A worm infested apple... why would you ever eat this?");
+                                    //rApple++
                                     break;
                             }
                             break;
-                        case 4:
-                            switch (quality)
+                        case 4: //helmets
+                            if (quality >= 80)
                             {
-                                case 1:
-                                    Console.WriteLine("The Head Of Cerberus!");
-                                    break;
-                                case 2:
-                                    Console.WriteLine("A Standard-issue soldier helmet");
-                                    break;
-                                case 3:
-                                    Console.WriteLine("This hat is not much more than just a piece of leather");
-                                    break;
+                                Console.WriteLine("The Helm of Light!");
+                                int rStat = rnd.Next(1, 21);
+                                armor = 25 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerWeaponDamage = weaponDamage;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality >= 45)
+                            {
+                                Console.WriteLine("An Iron Helm");
+                                int rStat = rnd.Next(1, 11);
+                                armor = 25 + rStat;
+                                Console.WriteLine($"Attack: {armor}\nCurrent armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerHead = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality > 45)
+                            {
+                                Console.WriteLine("A ragged piece of leather for your head");
+                                int rStat = rnd.Next(1, 6);
+                                armor = 5 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerHead = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
                             }
                             break;
-                        case 5:
-                            switch (quality)
+                        case 5: //gauntlets
+                            if (quality >= 80)
                             {
-                                case 1:
-                                    Console.WriteLine("Gods Own Fists!");
-                                    break;
-                                case 2:
-                                    Console.WriteLine("Decent iron gauntlets");
-                                    break;
-                                case 3:
-                                    Console.WriteLine("Ragged leather gloves");
-                                    break;
+                                Console.WriteLine("The Fists of God!");
+                                int rStat = rnd.Next(1, 21);
+                                armor = 25 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerFists = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality >= 45)
+                            {
+                                Console.WriteLine("Solid iron Gauntlets");
+                                int rStat = rnd.Next(1, 11);
+                                armor = 25 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerFists = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
+                            }
+                            else if (quality > 45)
+                            {
+                                Console.WriteLine("Ragged leather gloves");
+                                int rStat = rnd.Next(1, 6);
+                                armor = 5 + rStat;
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine("Do you want to equip it?\n(y/n)");
+                                while (equipCheck)
+                                {
+                                    string equip = Console.ReadLine().ToLower();
+                                    if (equip == "y")
+                                    {
+                                        //PlayerFists = armor;
+                                        equipCheck = false;
+                                    }
+                                    else if (equip == "n")
+                                    {
+                                        equipCheck = false;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("(y/n)");
+                                    }
+                                }
                             }
                             break;
                         default:
