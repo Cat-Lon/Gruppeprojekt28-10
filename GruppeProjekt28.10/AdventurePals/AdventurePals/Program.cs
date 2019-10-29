@@ -956,7 +956,15 @@ namespace AdventurePals
             Console.Beep(800, 200);
             return true;
         }
-
+        static bool LootSound()
+        {
+            Console.Beep(500, 300);
+            Console.Beep(800, 300);
+            Console.Beep(750, 250);
+            Console.Beep(750, 250);
+            Console.Beep(800, 200);
+            return true;
+        }
 
     }
 }
