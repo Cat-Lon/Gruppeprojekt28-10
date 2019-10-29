@@ -11,6 +11,14 @@ namespace AdventurePals
         private static int playerHP = 0;
         private static int playerStrength;
         private static int playerLevel;
+        private static int playerWeaponDamage = 6;
+        private static int playerHeadArmor;
+        private static int playerChestArmor = 1;
+        private static int playerFists;
+        private static int playerTotalArmor = playerChestArmor + playerHeadArmor + playerFists;
+        private static int gApple;
+        private static int apple;
+        private static int rApple;
         
         // Monster variables
         private static int MonsterHP;
@@ -239,14 +247,14 @@ namespace AdventurePals
                                 Console.WriteLine("Terrions plate!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerChestArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //ChestArmor = armor;
+                                        playerChestArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -265,14 +273,14 @@ namespace AdventurePals
                                 Console.WriteLine("Standard iron armor");
                                 int rStat = rnd.Next(1, 11);
                                 armor = 10 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerChestArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerArmor = armor;
+                                        playerChestArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -286,18 +294,18 @@ namespace AdventurePals
                                     }
                                 }
                             }
-                            else if (quality > 45) {
+                            else if (quality < 45) {
                                 Console.WriteLine("Leather Armor held together with staples and hope");
                                 int rStat = rnd.Next(1, 6);
                                 armor = 5 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerChestArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerArmor = armor;
+                                        playerChestArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -318,14 +326,14 @@ namespace AdventurePals
                                 Console.WriteLine("The Sword of Kalameet!");
                                 int rStat = rnd.Next(1, 21);
                                 weaponDamage = 25 + rStat;
-                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: {playerWeaponDamage}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerWeaponDamage = weaponDamage;
+                                        playerWeaponDamage = weaponDamage;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -344,14 +352,14 @@ namespace AdventurePals
                                 Console.WriteLine("A sharp iron sword");
                                 int rStat = rnd.Next(1, 21);
                                 weaponDamage = 25 + rStat;
-                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: {playerWeaponDamage}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerWeaponDamage = weaponDamage;
+                                        playerWeaponDamage = weaponDamage;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -365,19 +373,19 @@ namespace AdventurePals
                                     }
                                 }
                             }
-                            else if (quality > 45)
+                            else if (quality < 45)
                             {
                                 Console.WriteLine("A broken straight sword");
                                 int rStat = rnd.Next(1, 6);
                                 weaponDamage = 5 + rStat;
-                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: ");
+                                Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: {playerWeaponDamage}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerWeapon damage = WeaponDamage;
+                                        playerWeaponDamage = weaponDamage;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -394,20 +402,21 @@ namespace AdventurePals
                             break;
 
                         case 3: //apples 
-                            switch (quality)
+                            if (quality >= 80)
                             {
-                                case 1:
-                                    Console.WriteLine("A golden apple!");
-                                    //gApple++
-                                    break;
-                                case 2:
-                                    Console.WriteLine("A regular apple, quite tasty in fact!");
-                                    //apple++
-                                    break;
-                                case 3:
-                                    Console.WriteLine("A worm infested apple... why would you ever eat this?");
-                                    //rApple++
-                                    break;
+                                Console.WriteLine("A golden apple!");
+                                gApple++;
+                                break;
+                            }
+                            else if (quality >= 45)
+                            {
+                                Console.WriteLine("A regular apple, quite tasty in fact!");
+                                apple++;
+                            }
+                            else if (quality < 45)
+                            {
+                                Console.WriteLine("A worm infested apple... why would you ever eat this?");
+                                rApple++;
                             }
                             break;
                         case 4: //helmets
@@ -416,14 +425,14 @@ namespace AdventurePals
                                 Console.WriteLine("The Helm of Light!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerHeadArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerWeaponDamage = weaponDamage;
+                                        playerHeadArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -442,14 +451,14 @@ namespace AdventurePals
                                 Console.WriteLine("An Iron Helm");
                                 int rStat = rnd.Next(1, 11);
                                 armor = 25 + rStat;
-                                Console.WriteLine($"Attack: {armor}\nCurrent armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: {playerHeadArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerHead = armor;
+                                        playerHeadArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -463,19 +472,19 @@ namespace AdventurePals
                                     }
                                 }
                             }
-                            else if (quality > 45)
+                            else if (quality < 45)
                             {
                                 Console.WriteLine("A ragged piece of leather for your head");
                                 int rStat = rnd.Next(1, 6);
                                 armor = 5 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: {playerHeadArmor}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerHead = armor;
+                                        playerHeadArmor = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -496,14 +505,14 @@ namespace AdventurePals
                                 Console.WriteLine("The Fists of God!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerFists}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerFists = armor;
+                                        playerFists = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -522,14 +531,14 @@ namespace AdventurePals
                                 Console.WriteLine("Solid iron Gauntlets");
                                 int rStat = rnd.Next(1, 11);
                                 armor = 25 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: {playerFists}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerFists = armor;
+                                        playerFists = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -543,19 +552,19 @@ namespace AdventurePals
                                     }
                                 }
                             }
-                            else if (quality > 45)
+                            else if (quality < 45)
                             {
                                 Console.WriteLine("Ragged leather gloves");
                                 int rStat = rnd.Next(1, 6);
                                 armor = 5 + rStat;
-                                Console.WriteLine($"Armor: {armor}\nCurrent armor: ");
+                                Console.WriteLine($"Armor: {armor}\nCurrent armor: {playerFists}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
                                 while (equipCheck)
                                 {
                                     string equip = Console.ReadLine().ToLower();
                                     if (equip == "y")
                                     {
-                                        //PlayerFists = armor;
+                                        playerFists = armor;
                                         equipCheck = false;
                                     }
                                     else if (equip == "n")
@@ -678,7 +687,7 @@ namespace AdventurePals
                     {
                     bool isrunningMonster = true;
 
-                    int randomDmg = random.Next(1, 6) * 2 + playerStrength; // randomly  picks a number between chosen range
+                    int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; // randomly  picks a number between chosen range
                     Console.Write("You do " + randomDmg + " amount of dmg");
                     Console.WriteLine();
 
@@ -691,7 +700,7 @@ namespace AdventurePals
                         {
                             LevelUp();
                         }
-
+                    GetChest();
                         isrunningPlayer = false;
                     }
 
@@ -713,7 +722,7 @@ namespace AdventurePals
                         //Monster Fights Back
                         while (isrunningMonster)
                         {
-                            int randomDmg2 = random.Next(1, 6) * 2 + MonsterStr; // randomly  picks a number between chosen range
+                            int randomDmg2 = (random.Next(1, 6) * 2 + MonsterStr) / playerTotalArmor; // randomly  picks a number between chosen range
                             Console.Write("Monster do " + randomDmg2 + " amount of dmg");
                             Console.WriteLine();
 
