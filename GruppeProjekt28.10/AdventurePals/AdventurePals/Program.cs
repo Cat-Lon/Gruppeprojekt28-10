@@ -60,13 +60,60 @@ namespace AdventurePals
             return playerStrength;
         }
 
-       
 
         private static void Menu()
         {
             bool IsTrue = true;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Choose one of the following!");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            while (IsTrue)
+            {
+                Console.WriteLine("1: Play");
+                Console.WriteLine("2: Options");
+                Console.WriteLine("3: Credits");
+                Console.WriteLine("4: Quit\n");
+                string UsersChoice = Console.ReadLine();
+
+
+                if (UsersChoice == "1" || UsersChoice == "Play")
+                {
+                    GameStart();
+                    IsTrue = false;
+                }
+                else if (UsersChoice == "2" || UsersChoice == "Options")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nThere are no options just yet, but keep an eye out\n");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                }
+                else if (UsersChoice == "3" || UsersChoice == "Credits")
+                {
+                    Console.WriteLine("\nProgrammers: \n");
+                }
+                else if (UsersChoice == "4" || UsersChoice == "Quit")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nFarewell!");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Thread.Sleep(700);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nDon't be foolish, just pick one of the following!\n");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                }
+            }
+        }
+        private static void GameStart()
+        {
+            bool IsTrue = true;
             string UserName = "";
-            Console.WriteLine("Please tell me your name: ");
+            Console.WriteLine("\nWelcome to: ADVENTURE PALLS. what is your name? ");
             while (IsTrue)
             {
                 UserName = Console.ReadLine();
@@ -78,35 +125,12 @@ namespace AdventurePals
                 }
                 else
                 {
-                    Console.WriteLine($"\nHello there " + UserName);
+                    Console.WriteLine($"\nNice to meet you " + UserName);
                     IsTrue = false;
                 }
             }
-
             IsTrue = true;
-            Console.WriteLine("\nDo you want to play our game?");
-            Console.WriteLine("y/n\n");
-
-            while (IsTrue)
-            {
-                string UserAnswer = Console.ReadLine();
-
-                if (UserAnswer == "y")
-                {
-                    Console.WriteLine("\nFantastic!\n");
-                    IsTrue = false;
-                }
-                else if (UserAnswer == "n")
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("That is not a valid answer!\nType y or n to continue!");
-                }
-            }
-            IsTrue = true;
-            Console.WriteLine("What shall we call your character?\n");
+            Console.WriteLine("\nWhat shall we call your character?\n");
 
             while (IsTrue)
             {
