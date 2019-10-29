@@ -138,6 +138,34 @@ namespace AdventurePals
 
             return randomNumber;
         }
+
+        static void MeetNPC() // Random NPC that greets you
+        {
+            Console.WriteLine("On your path you meet someone");
+
+            Random random = new Random();
+
+            int randomNumber = random.Next(1, 4);
+
+            switch (randomNumber)
+            {
+                case 1:
+                    Console.WriteLine("'Hello' the person said");
+                    break;
+
+                case 2:
+                    Console.WriteLine("'Hi' the person said");
+                    break;
+
+                case 3:
+                    Console.WriteLine("'Sup' the person said");
+                    break;
+
+                default:
+                    Console.WriteLine("Idk what the fuck just happened");
+                    break;
+            }
+        }
         private static void GetChest() //Prints a randomly selected piece of loot (for now)
         {
             Random rnd = new Random();
