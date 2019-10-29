@@ -71,7 +71,17 @@ namespace AdventurePals
             return playerStrength;
         }
 
-
+        private static void AdventurePals()
+        {//Episk tems sang
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("             ______              ______   _   _   _______   _    _   ______    ______   _____              _        _____   ");
+            Console.WriteLine("     /\\     |  __  | \\ \\    / / |  ____| | \\ | | |__   __| | |  | | |  __  \\  |  ____| |  __ \\    /\\      | |      / ____|  ");
+            Console.WriteLine("    /  \\    | |  | |  \\ \\  / /  | |__    |  \\| |    | |    | |  | | | |__)  | | |__    | |__) |  /  \\     | |      | (___   ");
+            Console.WriteLine("   / /\\ \\   | |  | |   \\ \\/ /   |  __|   | . ` |    | |    | |  | | |  _   /  |  __|   |  ___/  / /\\ \\    | |      \\___  \\  ");
+            Console.WriteLine("  / ____ \\  | |__| |    \\  /    | |____  | |\\  |    | |    | |__| | | | \\ \\   | |____  | |     / ____ \\   | |____   ___) | ");
+            Console.WriteLine(" /_/    \\_\\ |______/     \\/     |______| |_| \\_|    |_|    \\_____// |_|  \\_\\  |______| |_|    /_/    \\_\\  \\______  |_____/  ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
         private static void Menu()
         {
             bool IsTrue = true;
@@ -124,7 +134,8 @@ namespace AdventurePals
         {
             bool IsTrue = true;
             string UserName = "";
-            Console.WriteLine("\nWelcome to: ADVENTURE PALLS. what is your name? ");
+            AdventurePals();
+            Console.WriteLine("\n\nWelcome! what is your name? ");
             while (IsTrue)
             {
                 UserName = Console.ReadLine();
