@@ -638,6 +638,7 @@ namespace AdventurePals
                 {
                     pResponse = true;
                     Console.WriteLine("aww okay :(");
+                    NextStep();
                 }
                 else
                 {
