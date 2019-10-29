@@ -399,7 +399,7 @@ namespace AdventurePals
                             else if (quality >= 45)
                             {
                                 Console.WriteLine("A sharp iron sword");
-                                int rStat = rnd.Next(1, 21);
+                                int rStat = rnd.Next(1, 11);
                                 weaponDamage = 25 + rStat;
                                 Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: {playerWeaponDamage}");
                                 Console.WriteLine("Do you want to equip it?\n(y/n)");
