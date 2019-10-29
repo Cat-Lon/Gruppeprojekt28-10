@@ -655,18 +655,21 @@ namespace AdventurePals
 
                 if (Youmeet == "Slime ")
                 {
+                    SlimeArt();
                     Console.WriteLine("You Encounter a Slime");
                     MonsterSlime();
                 }
 
                 else if (Youmeet == "Goblin ")
                 {
+                    GoblinArt();
                     Console.WriteLine("You encounter a Goblin");
                     MonsterGoblin();
                 }
 
                 else if (Youmeet == "Orc ")
                 {
+                    OrcArt();
                     Console.WriteLine("You encounter an Orc");
                     MonsterOrc();
                 }
@@ -726,13 +729,13 @@ namespace AdventurePals
 
                     while (isrunningPlayer)
                     {
-                    bool isrunningMonster = true;
+                        bool isrunningMonster = true;
 
-                    int randomDmg = random.Next(1, 6) * 2 + playerStrength; // randomly  picks a number between chosen range
-                    Console.Write("You do " + randomDmg + " amount of dmg");
-                    Console.WriteLine();
+                        int randomDmg = random.Next(1, 6) * 2 + playerStrength; // randomly  picks a number between chosen range
+                        Console.Write("You do " + randomDmg + " amount of dmg");
+                        Console.WriteLine();
 
-                    if (MonsterHP < randomDmg) // Lower than varibel 
+                        if (MonsterHP < randomDmg) // Lower than varibel 
                     {
                         Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
 
@@ -795,9 +798,13 @@ namespace AdventurePals
                                 Console.ReadLine();
                                 isrunningMonster = false;
                             }
+
                         }
                     }
                 }
+
+            
+
 
             }
 
@@ -831,8 +838,68 @@ namespace AdventurePals
             return true;
         }
 
+        /*************************Monster Art*****************/
+        private static void SlimeArt()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("          //////////");
+            Console.WriteLine("       ///          //");
+            Console.WriteLine("   //                ///");
+            Console.WriteLine("    //////     `          // ///");
+            Console.WriteLine("      //     <o>     /        /");
+            Console.WriteLine("      //         ///       /   ////");
+            Console.WriteLine("       /   ///// / // <O>>      ///");
+            Console.WriteLine("       //          //     // ///");
+            Console.WriteLine("        ///         ///////    //   ");
+            Console.WriteLine("          ////       /         ///  ");
+            Console.WriteLine("            //     // /     ///  //");
+            Console.WriteLine("             /  ///   /////     //");
+            Console.WriteLine("             ///        /////");
 
-      
+            Console.WriteLine("");
+        }
+
+        private static void GoblinArt()
+
+        {
+            Console.WriteLine("");
+            Console.WriteLine("    ///////                                 ///////  ");
+            Console.WriteLine("       // /////          /////        /////// //     ");
+            Console.WriteLine("        //    //////   //     ////  //       //      ");
+            Console.WriteLine("         //         //     \\  ///     </  //      ");
+            Console.WriteLine("           ///      /       \\/           //         ");
+            Console.WriteLine("              // /      \\o>   <O//    //        ");
+            Console.WriteLine("                //// `                //             ");
+            Console.WriteLine("                    //     -  //       /             ");
+            Console.WriteLine("                      ///            //              ");
+            Console.WriteLine("                         // /---V  //                ");
+            Console.WriteLine("                         //      //                  ");
+            Console.WriteLine("                            // //                    ");
+            Console.WriteLine("                                                     ");
+            Console.WriteLine("");
+        }
+
+        private static void OrcArt()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("                  //////                     ");
+            Console.WriteLine("              ////     //////                ");
+            Console.WriteLine("            //                //             ");
+            Console.WriteLine("      //  //   /___________//    //// //     ");
+            Console.WriteLine("       /////      o     o        ////        ");
+            Console.WriteLine("         //    --------------     //         ");
+            Console.WriteLine("         ///         /\\           //        ");
+            Console.WriteLine("          //       (   ))        //          ");
+            Console.WriteLine("         // /\\             /\\      //      ");
+            Console.WriteLine("        ///////////////////////       //     ");
+            Console.WriteLine("         //                  //      //      ");
+            Console.WriteLine("          //                         //      ");
+            Console.WriteLine("           //                     //         ");
+            Console.WriteLine("            ////////////////////             ");
+            Console.WriteLine("");
+        }
+
+
 
 
     }
