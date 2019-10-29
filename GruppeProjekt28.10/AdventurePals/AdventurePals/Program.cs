@@ -11,6 +11,10 @@ namespace AdventurePals
         private static int playerHP = 0;
         private static int playerStrength;
         private static int playerLevel;
+        // Monster variables
+        private static int MonsterHP;
+        private static int MonsterStr;
+
 
         private int playerExperience;
         private static List<int> ExperienceList = new List<int> { 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358, 1584, 1833, 2107, 2411, 2746, 3115 };
@@ -301,25 +305,25 @@ namespace AdventurePals
         /*****************Monster Stats*********************/
         static bool MonsterSlime()
         {
-            int SlimeHp = 60;
-            int SlimeStr = 2;
-            Console.WriteLine("The Slime Got " + SlimeHp + " HP \nAnd a strength of " + SlimeStr);
+            MonsterHP = 60;
+            MonsterStr = 2;
+            Console.WriteLine("The Slime Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
             return true;
         }
 
         static bool MonsterGoblin()
         {
-            int GoblinHp = 30;
-            int GoblinStr = 3;
-            Console.WriteLine("The Goblin Got " + GoblinHp + " HP \nAnd a strength of " + GoblinStr);
+            MonsterHP = 30;
+            MonsterStr = 3;
+            Console.WriteLine("The Goblin Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
             return true;
         }
 
         static bool MonsterOrc()
         {
-            int OrcHp = 40;
-            int OrcStr = 6;
-            Console.WriteLine("The Orc Got " + OrcHp + " HP \nAnd a strength of " + OrcStr);
+            MonsterHP = 40;
+            MonsterStr = 6;
+            Console.WriteLine("The Orc Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
             return true;
         }
 
