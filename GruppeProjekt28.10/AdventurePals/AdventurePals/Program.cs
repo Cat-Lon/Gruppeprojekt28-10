@@ -280,6 +280,7 @@ namespace AdventurePals
             bool equipCheck = true;
             int armor;
             int weaponDamage;
+            ChestSound();
             Console.WriteLine("You have found a chest!\n Do you wish to open it? (y/n)");
             while (pResponse != true)
             {
@@ -287,6 +288,7 @@ namespace AdventurePals
                 if (userInput == "y")
                 {
                     pResponse = true;
+                    LootSound();
                     Console.WriteLine("You got!");
                     switch (type)
                     {
@@ -963,6 +965,13 @@ namespace AdventurePals
             Console.Beep(750, 250);
             Console.Beep(750, 250);
             Console.Beep(800, 200);
+            return true;
+        }
+        static bool ChestSound()
+        {
+            Console.Beep(500, 300);
+            Console.Beep(800, 300);
+            Console.Beep(850, 300);
             return true;
         }
 
