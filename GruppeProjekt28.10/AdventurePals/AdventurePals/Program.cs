@@ -11,6 +11,7 @@ namespace AdventurePals
         private static int playerHP = 0;
         private static int playerStrength;
         private static int playerLevel;
+        
         // Monster variables
         private static int MonsterHP;
         private static int MonsterStr;
@@ -18,6 +19,7 @@ namespace AdventurePals
 
         private int playerExperience;
         private static List<int> ExperienceList = new List<int> { 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358, 1584, 1833, 2107, 2411, 2746, 3115 };
+
 
         static void Main(string[] args)
         {
@@ -271,15 +273,16 @@ namespace AdventurePals
 
         /*********************Random Monster Ecounter Function*********************/
         static bool isrunning1 = true;
+        static bool isrunningPlayer = true;
 
         static bool MonsterEncounter() //Array randomizer of Monster list
         {
             Console.WriteLine("You encounter a monster");
 
             Random RandomMonster = new Random();
-            string[] MonsterList = { "Slime ", "Goblin ", "Orc "};
+            string[] MonsterList = { "Slime ", "Goblin ", "Orc " };
 
-            while(isrunning1)
+            while (isrunning1)
             {
                 string message = Console.ReadLine();
                 int i = RandomMonster.Next(0, MonsterList.Length);
@@ -310,21 +313,6 @@ namespace AdventurePals
 
                 Console.ReadLine();
 
-                
-                switch (Youmeet) // Switch for deeper description of Monster encounter
-                {
-                    case "Slime ":
-                        Console.WriteLine("The Slime starts oozing towards you in a slow and STEADY PASTE");
-                    break;
-
-                    case "Goblin ":
-                        Console.WriteLine("The Goblin thrusts at you in an angry frenzy");
-                    break;
-                    
-                    case "Orc ":
-                        Console.WriteLine("The Orc Looks at you with an Arrogant look as it stomps up to you");
-                    break;
-                }                
             }
 
             return true;
@@ -336,6 +324,9 @@ namespace AdventurePals
             MonsterHP = 60;
             MonsterStr = 2;
             Console.WriteLine("The Slime Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
+            Console.WriteLine("\nThe Slime starts oozing towards you in a slow and STEADY PASTE");
+            AttackSwitch();
+
             return true;
         }
 
@@ -344,6 +335,9 @@ namespace AdventurePals
             MonsterHP = 30;
             MonsterStr = 3;
             Console.WriteLine("The Goblin Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
+            Console.WriteLine("\nThe Goblin thrusts at you in an angry frenzy");
+            AttackSwitch();
+
             return true;
         }
 
@@ -352,9 +346,126 @@ namespace AdventurePals
             MonsterHP = 40;
             MonsterStr = 6;
             Console.WriteLine("The Orc Got " + MonsterHP + " HP \nAnd a strength of " + MonsterStr);
+            Console.WriteLine("\nThe Orc Looks at you with an Arrogant look as it stomps up to you");
+            AttackSwitch();
+
             return true;
         }
 
+        /*************Player battleStats********/
+        private static void PlayerStats()
+        {
+            playerHP = 50;
+            playerStrength = 5;
+
+        }
+
+        /***********Battle Action Method*************/
+        private static void BattleAction()
+        {
+            Random random = new Random(); //number randomizer
+
+            while (isrunningPlayer)
+            {
+                PlayerStats();
+
+                while (isrunningPlayer)
+                {
+                    bool isrunningMonster = true;
+
+                    int randomDmg = random.Next(1, 6) * 2 + playerStrength; // randomly  picks a number between chosen range
+                    Console.Write("You do " + randomDmg + " amount of dmg");
+                    Console.WriteLine();
+
+                    if (MonsterHP < randomDmg) // Lower than varibel 
+                    {
+                        Console.WriteLine("\nThe Monster lie Bleeding violently at your feet ");
+                        isrunningPlayer = false;
+                    }
+
+                    if (MonsterHP == randomDmg) // Equal varibel 
+                    {
+                        Console.WriteLine("\nThe Monster dies ");
+                        isrunningPlayer = false;
+                    }
+
+                    else if (MonsterHP > randomDmg) // higher than varibel
+                    {
+                        MonsterHP = (MonsterHP - randomDmg);
+
+                        Console.WriteLine("Monster has " + MonsterHP + " Hp left");
+                        Console.WriteLine("-----------------------------------------");
+                        Console.WriteLine("You didnt kill it. \nMonster fights back");
+                        Console.ReadLine();
+
+                        //Monster Fights Back
+                        while (isrunningMonster)
+                        {
+                            int randomDmg2 = random.Next(1, 6) * 2 + MonsterStr; // randomly  picks a number between chosen range
+                            Console.Write("Monster do " + randomDmg2 + " amount of dmg");
+                            Console.WriteLine();
+
+                            if (playerHP < randomDmg2) // Lower than varibel 
+                            {
+                                Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
+                                isrunningPlayer = false;
+                                isrunningMonster = false;
+                            }
+
+                            else if (playerHP == randomDmg2) // Equal varibel 
+                            {
+                                Console.WriteLine("\nYou are Defeated ");
+                                isrunningPlayer = false;
+                                isrunningMonster = false;
+                            }
+
+                            else if (playerHP > randomDmg2)
+                            {
+                                playerHP = (playerHP - randomDmg2);
+
+                                Console.WriteLine("You have " + playerHP + " Hp left");
+                                Console.WriteLine("-----------------------------------------");
+                                Console.WriteLine("It didnt kill you. \nFight back");
+                                Console.ReadLine();
+                                isrunningMonster = false;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        /**************Attack Switch****************/
+        static bool AttackSwitch()
+        {
+            Console.WriteLine("\nAttack? \nRunaway");
+
+            string userResponse = Console.ReadLine();
+            switch (userResponse.ToLower())
+            {
+                case "attack":
+                case "atk":
+                    Console.WriteLine("\nYou attack");
+                    BattleAction();
+                    break;
+
+                case "runaway":
+                case "run":
+                    Console.WriteLine("You Run away");
+                    Console.WriteLine("But You wont get far");
+                    Console.WriteLine("");
+                    MonsterEncounter();
+                    break;
+
+                default:
+                    Console.WriteLine("Sorry didn't understand that");
+                    AttackSwitch();
+                    break;
+            }
+            return true;
+        }
 
 
     }
