@@ -17,7 +17,7 @@ namespace AdventurePals
         private static int MonsterStr;
 
 
-        private int playerExperience;
+        private static int playerExperience = 0;
         private static List<int> ExperienceList = new List<int> { 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358, 1584, 1833, 2107, 2411, 2746, 3115 };
 
 
@@ -47,12 +47,16 @@ namespace AdventurePals
             Console.WriteLine("Level: " + playerLevel + " You need " + ExperienceList[playerLevel-1] + " experience to level up");
         }
 
+
+
         static void LevelUp()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("LEVEL UP. HVORDAN GØR HAN DET?!?! WOOOOOW!!");
             playerLevel++;
-            Console.WriteLine("du er nu level" + playerLevel);
+            playerStrength += 1;
+            Console.WriteLine("du er nu level " + playerLevel);
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         static int PlayerAttack()
@@ -403,7 +407,14 @@ namespace AdventurePals
 
                     if (MonsterHP < randomDmg) // Lower than varibel 
                     {
-                        Console.WriteLine("\nThe Monster lie Bleeding violently at your feet ");
+                        Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
+
+                        playerExperience += 100;
+                        if(playerExperience > ExperienceList[playerLevel-1])
+                        {
+                            LevelUp();
+                        }
+
                         isrunningPlayer = false;
                     }
 
