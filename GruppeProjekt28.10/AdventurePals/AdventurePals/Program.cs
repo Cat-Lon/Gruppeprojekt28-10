@@ -30,6 +30,13 @@ namespace AdventurePals
 
         }
 
+        static void GameOver()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("You died");
+            Environment.Exit(0);
+        }
+
         //Initializes player stats. TODO Call in Menu somewhere.
         static void CreatePlayer(string name)
         {
@@ -305,14 +312,13 @@ namespace AdventurePals
 
         static bool MonsterEncounter() //Array randomizer of Monster list
         {
-            Console.WriteLine("You encounter a monster");
+//            Console.WriteLine("You encounter a monster");
 
             Random RandomMonster = new Random();
             string[] MonsterList = { "Slime ", "Goblin ", "Orc " };
 
             while (isrunning1)
             {
-                string message = Console.ReadLine();
                 int i = RandomMonster.Next(0, MonsterList.Length);
                 string Youmeet = MonsterList[i];
 
@@ -380,25 +386,15 @@ namespace AdventurePals
             return true;
         }
 
-        /*************Player battleStats********/
-        private static void PlayerStats()
-        {
-            playerHP = 50;
-            playerStrength = 5;
-
-        }
 
         /***********Battle Action Method*************/
         private static void BattleAction()
         {
+            isrunningPlayer = true;
             Random random = new Random(); //number randomizer
 
-            while (isrunningPlayer)
-            {
-                PlayerStats();
-
-                while (isrunningPlayer)
-                {
+                    while (isrunningPlayer)
+                    {
                     bool isrunningMonster = true;
 
                     int randomDmg = random.Next(1, 6) * 2 + playerStrength; // randomly  picks a number between chosen range
@@ -445,6 +441,8 @@ namespace AdventurePals
                                 Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
                                 isrunningPlayer = false;
                                 isrunningMonster = false;
+
+                            GameOver();
                             }
 
                             else if (playerHP == randomDmg2) // Equal varibel 
@@ -465,7 +463,6 @@ namespace AdventurePals
                                 isrunningMonster = false;
                             }
 
-                        }
                     }
                 }
             }
@@ -501,6 +498,9 @@ namespace AdventurePals
             }
             return true;
         }
+
+
+      
 
 
     }
