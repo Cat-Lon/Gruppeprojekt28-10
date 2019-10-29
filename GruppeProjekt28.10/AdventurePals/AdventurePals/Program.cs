@@ -664,6 +664,7 @@ namespace AdventurePals
 
                 if (Youmeet == "Slime ")
                 {
+                    EncounterSound();
                     SlimeArt();
                     Console.WriteLine("You Encounter a Slime");
                     MonsterSlime();
@@ -671,6 +672,7 @@ namespace AdventurePals
 
                 else if (Youmeet == "Goblin ")
                 {
+                    EncounterSound();
                     GoblinArt();
                     Console.WriteLine("You encounter a Goblin");
                     MonsterGoblin();
@@ -678,6 +680,7 @@ namespace AdventurePals
 
                 else if (Youmeet == "Orc ")
                 {
+                    EncounterSound();
                     OrcArt();
                     Console.WriteLine("You encounter an Orc");
                     MonsterOrc();
@@ -746,6 +749,7 @@ namespace AdventurePals
 
                         if (MonsterHP < randomDmg) // Lower than varibel 
                     {
+                        EnemyKillSound();
                         Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
 
                         playerExperience += 100;
@@ -759,6 +763,7 @@ namespace AdventurePals
 
                     if (MonsterHP == randomDmg) // Equal varibel 
                     {
+                        EnemyKillSound();
                         Console.WriteLine("\nThe Monster dies ");
                         isrunningPlayer = false;
                     }
@@ -766,7 +771,7 @@ namespace AdventurePals
                     else if (MonsterHP > randomDmg) // higher than varibel
                     {
                         MonsterHP = (MonsterHP - randomDmg);
-
+                        AttackSound();
                         Console.WriteLine("Monster has " + MonsterHP + " Hp left");
                         Console.WriteLine("-----------------------------------------");
                         Console.WriteLine("You didnt kill it. \nMonster fights back");
@@ -781,6 +786,7 @@ namespace AdventurePals
 
                             if (playerHP < randomDmg2) // Lower than varibel 
                             {
+                                EnemyKillSound();
                                 Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
                                 isrunningPlayer = false;
                                 isrunningMonster = false;
@@ -790,6 +796,7 @@ namespace AdventurePals
 
                             else if (playerHP == randomDmg2) // Equal varibel 
                             {
+                                EnemyKillSound();
                                 Console.WriteLine("\nYou are Defeated ");
                                 isrunningPlayer = false;
                                 isrunningMonster = false;
@@ -800,7 +807,7 @@ namespace AdventurePals
                             else if (playerHP > randomDmg2)
                             {
                                 playerHP = (playerHP - randomDmg2);
-
+                                AttackSound();
                                 Console.WriteLine("You have " + playerHP + " Hp left");
                                 Console.WriteLine("-----------------------------------------");
                                 Console.WriteLine("It didnt kill you. \nFight back");
@@ -833,6 +840,7 @@ namespace AdventurePals
 
                 case "runaway":
                 case "run":
+                    RunAwaySound();
                     Console.WriteLine("You Run away");
                     Console.WriteLine("But You wont get far");
                     Console.WriteLine("");
@@ -908,7 +916,45 @@ namespace AdventurePals
             Console.WriteLine("");
         }
 
+        /************* Battle Sounds ************/
+        //AttackSound Beeps
+        static bool AttackSound()
+        {
+            Console.Beep(400, 350);
+            Console.Beep(600, 350);
+            return true;
+        }
 
+        //RunAwaySound beeps
+        static bool RunAwaySound()
+        {
+            Console.Beep(400, 200);
+            Console.Beep(250, 250);
+            Console.Beep(400, 300);
+            Console.Beep(200, 500);
+            return true;
+        }
+
+        //EnemyKillSound Beeps
+        static bool EnemyKillSound()
+        {
+            Console.Beep(400, 350);
+            Console.Beep(600, 300);
+            Console.Beep(650, 300);
+            Console.Beep(750, 250);
+            return true;
+        }
+
+        static bool EncounterSound()
+        {
+            Console.Beep(500, 400);
+            Console.Beep(800, 300);
+            Console.Beep(500, 400);
+            Console.Beep(800, 300);
+            Console.Beep(500, 300);
+            Console.Beep(800, 200);
+            return true;
+        }
 
 
     }
