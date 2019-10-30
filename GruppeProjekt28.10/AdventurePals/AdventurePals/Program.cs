@@ -191,7 +191,7 @@ namespace AdventurePals
         static void NextStep()
         {
             bool choice;
-            Console.WriteLine("Where would you like to go (west / north / east / south)");
+            Console.WriteLine("Where would you like to go (west / north / east / south). You can also rest");
             do
             {
                 choice = false;
@@ -217,12 +217,45 @@ namespace AdventurePals
                     Console.WriteLine("You go east");
                     AdventureObstacle();
                 }
+
+                else if (input.ToLower().Trim() == "rest")
+                {
+                    Console.WriteLine("You rest for a bit. Now would be a good time to eat.");
+                    input = Console.ReadLine();
+                    if (input.ToLower().Trim() == "eat")
+                    {
+
+                        Console.WriteLine("You have \n 1:" + gApple + " golden apples\n2:" + apple + " normal apples \n3:" + rApple + " rotten apples");
+                        Console.WriteLine("What do you want to eat? (write number)");
+                        input = Console.ReadLine();
+                        if (input == "1")
+                        {
+                            Console.WriteLine("You eat a golden apple. You restore 50 HP!!!");
+                            playerHP += 50;
+                            gApple -= 1;
+                        }
+                        else if (input == "2")
+                        {
+                            Console.WriteLine("You eat a normal apple. You restore 10 hp");
+                            playerHP += 10;
+                            apple -= 1;
+                        }
+                        else if (input == "3")
+                        {
+                            Console.WriteLine("You eat a rotten apple. It restores 2 hp :(");
+                            playerHP += 2;
+                            rApple -= 1;
+                        }
+                        NextStep();
+                    }
+                }
                 else
                 {
-                    Console.WriteLine("Please pick (west / north / east / south)");
+                    Console.WriteLine("Please pick (west / north / east / south) or rest");
                     choice = true;
                 }
             } while (choice);
+
         }
 
         static void AdventureObstacle() // Decides what the player runs in to next
