@@ -254,18 +254,22 @@ namespace AdventurePals
             {
                 case 1:
                     Console.WriteLine("'Hello' the person said");
+                    Console.WriteLine("Be wary on the Road here traveler. \nThere are rumors of some nasty looking creatures roaming araound");
                     break;
 
                 case 2:
                     Console.WriteLine("'Hi' the person said");
+                    Console.WriteLine("Take care on the road friend. \nThere is an equal chance of treasure and Monster ecounters out there");
                     break;
 
                 case 3:
                     Console.WriteLine("'Sup' the person said");
+                    Console.WriteLine("Carefull not to slip in the corpse of a creature back there as i did");
                     break;
 
                 default:
                     Console.WriteLine("Idk what the fuck just happened");
+                    Console.WriteLine("He says with a very confused look on his face");
                     break;
             }
 
