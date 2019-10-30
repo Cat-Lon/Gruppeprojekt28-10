@@ -311,7 +311,7 @@ namespace AdventurePals
 
             Random random = new Random();
 
-            int randomNumber = random.Next(1, 4);
+            int randomNumber = random.Next(1, 5);
 
             switch (randomNumber)
             {
@@ -331,6 +331,15 @@ namespace AdventurePals
                     Console.WriteLine("\n'Sup' the person said");
                     Console.WriteLine("Carefull not to slip in the corpse of a creature back there as i did");
                     dialogueOptions3();
+                    break;
+
+                case 4:
+                    Console.WriteLine("\n Waddup?!");
+                    Console.WriteLine("You look like you could need some divine fucking juice");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("HP has been restored. You gained 100 HP!");
+                    playerHP += 100;
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     break;
 
                 default:
