@@ -20,6 +20,7 @@ namespace AdventurePals
         private static int apple;
         private static int rApple;
         
+        
         // Monster variables
         private static int MonsterHP;
         private static int MonsterStr;
@@ -44,7 +45,7 @@ namespace AdventurePals
             Environment.Exit(0);
         }
 
-        //Initializes player stats. TODO Call in Menu somewhere.
+        //Initializes player stats. TODO Call in Menu somewhere. :D
         static void CreatePlayer(string name)
         {
             playerName = name;
