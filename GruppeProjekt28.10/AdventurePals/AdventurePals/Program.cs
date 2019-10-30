@@ -190,30 +190,39 @@ namespace AdventurePals
 
         static void NextStep()
         {
+            bool choice;
             Console.WriteLine("Where would you like to go (west / north / east / south)");
+            do
+            {
+                choice = false;
+                string input = Console.ReadLine();
 
-            string input = Console.ReadLine();
-            
-            if(input.ToLower().Trim() == "west")
-            {
-                Console.WriteLine("You go west");
-                AdventureObstacle();
-            }
-            else if (input.ToLower().Trim() == "north")
-            {
-                Console.WriteLine("You go north");
-                AdventureObstacle();
-            }
-            else if (input.ToLower().Trim() == "south")
-            {
-                Console.WriteLine("You go south");
-                AdventureObstacle();
-            }
-            else if (input.ToLower().Trim() == "east")
-            {
-                Console.WriteLine("You go east");
-                AdventureObstacle();
-            }
+                if (input.ToLower().Trim() == "west")
+                {
+                    Console.WriteLine("You go west");
+                    AdventureObstacle();
+                }
+                else if (input.ToLower().Trim() == "north")
+                {
+                    Console.WriteLine("You go north");
+                    AdventureObstacle();
+                }
+                else if (input.ToLower().Trim() == "south")
+                {
+                    Console.WriteLine("You go south");
+                    AdventureObstacle();
+                }
+                else if (input.ToLower().Trim() == "east")
+                {
+                    Console.WriteLine("You go east");
+                    AdventureObstacle();
+                }
+                else
+                {
+                    Console.WriteLine("Please pick (west / north / east / south)");
+                    choice = true;
+                }
+            } while (choice);
         }
 
         static void AdventureObstacle() // Decides what the player runs in to next
