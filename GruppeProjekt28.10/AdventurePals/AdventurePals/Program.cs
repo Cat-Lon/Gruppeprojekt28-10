@@ -230,21 +230,42 @@ namespace AdventurePals
                         input = Console.ReadLine();
                         if (input == "1")
                         {
+                            if (gApple > 0)
+                            { 
                             Console.WriteLine("You eat a golden apple. You restore 50 HP!!!");
                             playerHP += 50;
                             gApple -= 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You don't have any golden apples");
+                            }
                         }
                         else if (input == "2")
                         {
+                            if(apple > 0)
+                            { 
                             Console.WriteLine("You eat a normal apple. You restore 10 hp");
                             playerHP += 10;
                             apple -= 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You don't have any normal apples");
+                            }
                         }
                         else if (input == "3")
                         {
+                            if (rApple > 0)
+                            { 
                             Console.WriteLine("You eat a rotten apple. It restores 2 hp :(");
                             playerHP += 2;
                             rApple -= 1;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You don't have any rotten apples");
+                            }
                         }
                         NextStep();
                     }
