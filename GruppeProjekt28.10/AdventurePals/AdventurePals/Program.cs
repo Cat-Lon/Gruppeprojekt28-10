@@ -263,18 +263,22 @@ namespace AdventurePals
             {
                 case 1:
                     Console.WriteLine("'Hello' the person said");
+                    Console.WriteLine("Be wary on the Road here traveler. \nThere are rumors of some nasty looking creatures roaming araound");
                     break;
 
                 case 2:
                     Console.WriteLine("'Hi' the person said");
+                    Console.WriteLine("Take care on the road friend. \nThere is an equal chance of treasure and Monster ecounters out there");
                     break;
 
                 case 3:
                     Console.WriteLine("'Sup' the person said");
+                    Console.WriteLine("Carefull not to slip in the corpse of a creature back there as i did");
                     break;
 
                 default:
                     Console.WriteLine("Idk what the fuck just happened");
+                    Console.WriteLine("He says with a very confused look on his face");
                     break;
             }
 
@@ -664,10 +668,9 @@ namespace AdventurePals
 
         static bool MonsterEncounter() //Array randomizer of Monster list
         {
-//            Console.WriteLine("You encounter a monster");
 
-            Random RandomMonster = new Random();
-            string[] MonsterList = { "Slime ", "Goblin ", "Orc " };
+            Random RandomMonster = new Random(); //Randomizer
+            string[] MonsterList = { "Slime ", "Goblin ", "Orc " }; //Monster Array list
 
             while (isrunning1)
             {
@@ -751,36 +754,37 @@ namespace AdventurePals
             isrunningPlayer = true;
             Random random = new Random(); //number randomizer
 
-            while (isrunningPlayer)
+            while (isrunningPlayer) //battle whileloop
             {
                 bool isrunningMonster = true;
 
-                int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; // randomly  picks a number between chosen range
+                int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; //randomly  picks a number between chosen range + varibles
                 Console.Write("You do " + randomDmg + " amount of dmg");
                 Console.WriteLine();
 
-                if (MonsterHP < randomDmg) // Lower than varibel 
+                if (MonsterHP < randomDmg) //Lower than varibel 
                 {
                     EnemyKillSound();
                     Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
 
                     playerExperience += 100;
+                    
                     if(playerExperience > ExperienceList[playerLevel-1])
                     {
-                    LevelUp();
+                        LevelUp();
                     }
                     GetChest();
                     isrunningPlayer = false;
                 }
 
-                if (MonsterHP == randomDmg) // Equal varibel 
+                if (MonsterHP == randomDmg) //Equal varibel 
                 {
                     EnemyKillSound();
                     Console.WriteLine("\nThe Monster dies ");
                     isrunningPlayer = false;
                 }
 
-                else if (MonsterHP > randomDmg) // higher than varibel
+                else if (MonsterHP > randomDmg) //higher than varibel
                 {
                     MonsterHP = (MonsterHP - randomDmg);
                     AttackSound();
@@ -789,14 +793,14 @@ namespace AdventurePals
                     Console.WriteLine("You didnt kill it. \nMonster fights back");
                     Console.ReadLine();
 
-                    //Monster Fights Back
+                    //Monster Fights Back while loop
                     while (isrunningMonster)
                     {
-                        int randomDmg2 = (random.Next(1, 6) * 2 + MonsterStr) / playerTotalArmor; // randomly  picks a number between chosen range
+                        int randomDmg2 = (random.Next(1, 6) * 2 + MonsterStr) / playerTotalArmor; //randomly  picks a number between chosen range + varibles
                         Console.Write("Monster do " + randomDmg2 + " amount of dmg");
                         Console.WriteLine();
 
-                        if (playerHP < randomDmg2) // Lower than varibel 
+                        if (playerHP < randomDmg2) //Lower than varibel 
                         {
                             EnemyKillSound();
                             Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
@@ -806,7 +810,7 @@ namespace AdventurePals
                             GameOver();
                         }
 
-                        else if (playerHP == randomDmg2) // Equal varibel 
+                        else if (playerHP == randomDmg2) //Equal varibel 
                         {
                             EnemyKillSound();
                             Console.WriteLine("\nYou are Defeated ");
@@ -816,7 +820,7 @@ namespace AdventurePals
                             GameOver();
                         }
 
-                        else if (playerHP > randomDmg2)
+                        else if (playerHP > randomDmg2) //Higher yhan varibel
                         {
                             playerHP = (playerHP - randomDmg2);
                             AttackSound();
@@ -830,11 +834,10 @@ namespace AdventurePals
                     }
                 }
             }
-
-        
+            
         }
 
-        /**************Attack Switch****************/
+        /***************** Attack Switch ********************/
         static bool AttackSwitch()
         {
             Console.WriteLine("\nAttack? \nRunaway");
@@ -865,7 +868,7 @@ namespace AdventurePals
             return true;
         }
 
-        /*************************Monster Art*****************/
+        /************************ Monster Art ************************/
         private static void SlimeArt()
         {
             Console.WriteLine("");
@@ -887,7 +890,6 @@ namespace AdventurePals
         }
 
         private static void GoblinArt()
-
         {
             Console.WriteLine("");
             Console.WriteLine("    ///////                                 ///////  ");
@@ -928,34 +930,34 @@ namespace AdventurePals
 
         /************* Battle Sounds ************/
         //AttackSound Beeps
-        static bool AttackSound()
+        static void AttackSound()
         {
             Console.Beep(400, 350);
             Console.Beep(600, 350);
-            return true;
+            
         }
 
         //RunAwaySound beeps
-        static bool RunAwaySound()
+        static void RunAwaySound()
         {
             Console.Beep(400, 200);
             Console.Beep(250, 250);
             Console.Beep(400, 300);
             Console.Beep(200, 500);
-            return true;
+            
         }
 
         //EnemyKillSound Beeps
-        static bool EnemyKillSound()
+        static void EnemyKillSound()
         {
             Console.Beep(400, 350);
             Console.Beep(600, 300);
             Console.Beep(650, 300);
             Console.Beep(750, 250);
-            return true;
+            
         }
 
-        static bool EncounterSound()
+        static void EncounterSound()
         {
             Console.Beep(500, 400);
             Console.Beep(800, 300);
@@ -963,23 +965,23 @@ namespace AdventurePals
             Console.Beep(800, 300);
             Console.Beep(500, 300);
             Console.Beep(800, 200);
-            return true;
+            
         }
-        static bool LootSound()
+        static void LootSound()
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
             Console.Beep(750, 250);
             Console.Beep(750, 250);
             Console.Beep(800, 200);
-            return true;
+            
         }
-        static bool ChestSound()
+        static void ChestSound()
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
             Console.Beep(850, 300);
-            return true;
+            
         }
 
     }
