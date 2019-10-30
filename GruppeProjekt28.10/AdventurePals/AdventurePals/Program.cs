@@ -917,34 +917,34 @@ namespace AdventurePals
 
         /************* Battle Sounds ************/
         //AttackSound Beeps
-        static bool AttackSound()
+        static void AttackSound()
         {
             Console.Beep(400, 350);
             Console.Beep(600, 350);
-            return true;
+            
         }
 
         //RunAwaySound beeps
-        static bool RunAwaySound()
+        static void RunAwaySound()
         {
             Console.Beep(400, 200);
             Console.Beep(250, 250);
             Console.Beep(400, 300);
             Console.Beep(200, 500);
-            return true;
+            
         }
 
         //EnemyKillSound Beeps
-        static bool EnemyKillSound()
+        static void EnemyKillSound()
         {
             Console.Beep(400, 350);
             Console.Beep(600, 300);
             Console.Beep(650, 300);
             Console.Beep(750, 250);
-            return true;
+            
         }
 
-        static bool EncounterSound()
+        static void EncounterSound()
         {
             Console.Beep(500, 400);
             Console.Beep(800, 300);
@@ -952,23 +952,23 @@ namespace AdventurePals
             Console.Beep(800, 300);
             Console.Beep(500, 300);
             Console.Beep(800, 200);
-            return true;
+            
         }
-        static bool LootSound()
+        static void LootSound()
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
             Console.Beep(750, 250);
             Console.Beep(750, 250);
             Console.Beep(800, 200);
-            return true;
+            
         }
-        static bool ChestSound()
+        static void ChestSound()
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
             Console.Beep(850, 300);
-            return true;
+            
         }
 
     }
