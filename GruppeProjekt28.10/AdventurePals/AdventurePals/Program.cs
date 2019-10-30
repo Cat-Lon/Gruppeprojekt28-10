@@ -353,7 +353,7 @@ namespace AdventurePals
 
             NextStep();
         }
-        private static void GetChest() //Prints a randomly selected piece of loot (for now)
+        private static void GetChest() //Prints a randomly selected piece of loot (for now)!
         {
             Random rnd = new Random();
             int type = rnd.Next(1, 6);
