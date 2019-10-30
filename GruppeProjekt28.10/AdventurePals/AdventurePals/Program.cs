@@ -80,6 +80,7 @@ namespace AdventurePals
 
         private static void AdventurePals()
         {//Episk tems sang
+            
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("             ______              ______   _   _   _______   _    _   ______    ______   _____              _        _____   ");
             Console.WriteLine("     /\\     |  __  | \\ \\    / / |  ____| | \\ | | |__   __| | |  | | |  __  \\  |  ____| |  __ \\    /\\      | |      / ____|  ");
@@ -88,6 +89,7 @@ namespace AdventurePals
             Console.WriteLine("  / ____ \\  | |__| |    \\  /    | |____  | |\\  |    | |    | |__| | | | \\ \\   | |____  | |     / ____ \\   | |____   ___) | ");
             Console.WriteLine(" /_/    \\_\\ |______/     \\/     |______| |_| \\_|    |_|    \\_____// |_|  \\_\\  |______| |_|    /_/    \\_\\  \\______  |_____/  ");
             Console.ForegroundColor = ConsoleColor.Gray;
+            ThemeBeeps();
         }
         private static void Menu()
         {
@@ -1052,8 +1054,24 @@ namespace AdventurePals
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
-            Console.Beep(850, 300);
-            
+            Console.Beep(850, 300);  
+        }
+
+        static void ThemeBeeps()
+        {
+            Console.Beep(200, 800);
+            Console.Beep(200, 300);
+            Console.Beep(200, 250);
+            Console.Beep(250, 250);
+            Console.Beep(200, 250);
+            Console.Beep(250, 250);
+            Console.Beep(200, 600);
+            Console.Beep(250, 250);
+            Console.Beep(200, 250);
+            Console.Beep(250, 550);
+            Console.Beep(280, 500);
+            Console.Beep(300, 350);
+            Console.Beep(200, 600);
         }
 
         /*****************Dialogue Options******************/
