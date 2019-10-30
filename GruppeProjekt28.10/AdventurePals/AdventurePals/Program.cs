@@ -746,86 +746,84 @@ namespace AdventurePals
                     {
                         bool isrunningMonster = true;
 
-                    int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; // randomly  picks a number between chosen range
-                    Console.Write("You do " + randomDmg + " amount of dmg");
-                    Console.WriteLine();
+                        int randomDmg = random.Next(1, playerWeaponDamage) * 2 + playerStrength; // randomly  picks a number between chosen range
+                        Console.Write("You do " + randomDmg + " amount of dmg");
+                        Console.WriteLine();
 
                         if (MonsterHP < randomDmg) // Lower than varibel 
-                    {
-                        EnemyKillSound();
-                        Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
-
-                        playerExperience += 100;
-                        if(playerExperience > ExperienceList[playerLevel-1])
                         {
+                            EnemyKillSound();
+                            Console.WriteLine("\nThe Monster lie Bleeding violently at your feet.");
+
+                            playerExperience += 100;
+                            if(playerExperience > ExperienceList[playerLevel-1])
+                            {
                             LevelUp();
+                            }
+                            GetChest();
+                            isrunningPlayer = false;
                         }
-                    GetChest();
-                        isrunningPlayer = false;
-                    }
 
-                    if (MonsterHP == randomDmg) // Equal varibel 
-                    {
-                        EnemyKillSound();
-                        Console.WriteLine("\nThe Monster dies ");
-                        isrunningPlayer = false;
-                    }
-
-                    else if (MonsterHP > randomDmg) // higher than varibel
-                    {
-                        MonsterHP = (MonsterHP - randomDmg);
-                        AttackSound();
-                        Console.WriteLine("Monster has " + MonsterHP + " Hp left");
-                        Console.WriteLine("-----------------------------------------");
-                        Console.WriteLine("You didnt kill it. \nMonster fights back");
-                        Console.ReadLine();
-
-                        //Monster Fights Back
-                        while (isrunningMonster)
+                        if (MonsterHP == randomDmg) // Equal varibel 
                         {
-                            int randomDmg2 = (random.Next(1, 6) * 2 + MonsterStr) / playerTotalArmor; // randomly  picks a number between chosen range
-                            Console.Write("Monster do " + randomDmg2 + " amount of dmg");
-                            Console.WriteLine();
+                            EnemyKillSound();
+                            Console.WriteLine("\nThe Monster dies ");
+                            isrunningPlayer = false;
+                        }
 
-                            if (playerHP < randomDmg2) // Lower than varibel 
+                        else if (MonsterHP > randomDmg) // higher than varibel
+                        {
+                            MonsterHP = (MonsterHP - randomDmg);
+                            AttackSound();
+                            Console.WriteLine("Monster has " + MonsterHP + " Hp left");
+                            Console.WriteLine("-----------------------------------------");
+                            Console.WriteLine("You didnt kill it. \nMonster fights back");
+                            Console.ReadLine();
+
+                            //Monster Fights Back
+                            while (isrunningMonster)
                             {
-                                EnemyKillSound();
-                                Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
-                                isrunningPlayer = false;
-                                isrunningMonster = false;
+                                int randomDmg2 = (random.Next(1, 6) * 2 + MonsterStr) / playerTotalArmor; // randomly  picks a number between chosen range
+                                Console.Write("Monster do " + randomDmg2 + " amount of dmg");
+                                Console.WriteLine();
 
-                                GameOver();
+                                if (playerHP < randomDmg2) // Lower than varibel 
+                                {
+                                    EnemyKillSound();
+                                    Console.WriteLine("\nYou are Defeated \nand lie Bleeding violently at the Monsters feet ");
+                                    isrunningPlayer = false;
+                                    isrunningMonster = false;
+
+                                    GameOver();
+                                }
+
+                                else if (playerHP == randomDmg2) // Equal varibel 
+                                {
+                                    EnemyKillSound();
+                                    Console.WriteLine("\nYou are Defeated ");
+                                    isrunningPlayer = false;
+                                    isrunningMonster = false;
+
+                                    GameOver();
+                                }
+
+                                else if (playerHP > randomDmg2)
+                                {
+                                    playerHP = (playerHP - randomDmg2);
+                                    AttackSound();
+                                    Console.WriteLine("You have " + playerHP + " Hp left");
+                                    Console.WriteLine("-----------------------------------------");
+                                    Console.WriteLine("It didnt kill you. \nFight back");
+                                    Console.ReadLine();
+                                    isrunningMonster = false;
+                                }
+
                             }
-
-                            else if (playerHP == randomDmg2) // Equal varibel 
-                            {
-                                EnemyKillSound();
-                                Console.WriteLine("\nYou are Defeated ");
-                                isrunningPlayer = false;
-                                isrunningMonster = false;
-
-                                GameOver();
-                            }
-
-                            else if (playerHP > randomDmg2)
-                            {
-                                playerHP = (playerHP - randomDmg2);
-                                AttackSound();
-                                Console.WriteLine("You have " + playerHP + " Hp left");
-                                Console.WriteLine("-----------------------------------------");
-                                Console.WriteLine("It didnt kill you. \nFight back");
-                                Console.ReadLine();
-                                isrunningMonster = false;
-                            }
-
                         }
                     }
-                }
 
-            
-
-
-            }
+        
+        }
 
         /**************Attack Switch****************/
         static bool AttackSwitch()
