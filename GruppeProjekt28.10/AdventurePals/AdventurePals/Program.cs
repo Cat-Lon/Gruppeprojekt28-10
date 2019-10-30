@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Collections.Generic;
 
@@ -80,7 +80,7 @@ namespace AdventurePals
         }
 
         private static void AdventurePals()
-        {//Episk tems sang          
+        {//Episk tems sang
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("             ______              ______   _   _   _______   _    _   ______    ______   _____              _        _____   ");
             Console.WriteLine("     /\\     |  __  | \\ \\    / / |  ____| | \\ | | |__   __| | |  | | |  __  \\  |  ____| |  __ \\    /\\      | |      / ____|  ");
