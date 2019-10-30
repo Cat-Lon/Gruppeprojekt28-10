@@ -316,23 +316,27 @@ namespace AdventurePals
             switch (randomNumber)
             {
                 case 1:
-                    Console.WriteLine("'Hello' the person said");
+                    Console.WriteLine("\n'Hello' the person said");
                     Console.WriteLine("Be wary on the Road here traveler. \nThere are rumors of some nasty looking creatures roaming araound");
+                    dialogueOptions1();
                     break;
 
                 case 2:
-                    Console.WriteLine("'Hi' the person said");
+                    Console.WriteLine("\n'Hi' the person said");
                     Console.WriteLine("Take care on the road friend. \nThere is an equal chance of treasure and Monster ecounters out there");
+                    dialogueOptions2();
                     break;
 
                 case 3:
-                    Console.WriteLine("'Sup' the person said");
+                    Console.WriteLine("\n'Sup' the person said");
                     Console.WriteLine("Carefull not to slip in the corpse of a creature back there as i did");
+                    dialogueOptions3();
                     break;
 
                 default:
-                    Console.WriteLine("Idk what the fuck just happened");
+                    Console.WriteLine("\nIdk what the fuck just happened");
                     Console.WriteLine("He says with a very confused look on his face");
+                    Console.WriteLine("He doesn't seem to notice you as he walks past you...");
                     break;
             }
 
@@ -1036,6 +1040,61 @@ namespace AdventurePals
             Console.Beep(800, 300);
             Console.Beep(850, 300);
             
+        }
+
+        /*****************Dialogue Options******************/
+        static void dialogueOptions1()
+        {
+            Console.WriteLine("\nWhat do you say? \n1. Thank you friend \n2. Mind your own business");
+            string playerResponse = Console.ReadLine();
+            switch (playerResponse.ToLower())
+            {
+                case "1":
+                    Console.WriteLine("He Smiles politely at your response \nand move on with his journey");
+                    break;
+                case "2":
+                    Console.WriteLine("He grunts at your response. \nClearly dissatisfied with your attitude");
+                    break;
+                default:
+                    Console.WriteLine("You do nothing and continue onwards");
+                    break;
+            }
+        }
+
+        static void dialogueOptions2()
+        {
+            Console.WriteLine("\nWhat do you say? \n1. Thank you for the warning Friend... \n2. Hmph I dont need care im invinsible");
+            string playerResponse = Console.ReadLine();
+            switch (playerResponse.ToLower())
+            {
+                case "1":
+                    Console.WriteLine("He Smiles politely \nalways nice to help a fellow traveler");
+                    break;
+                case "2":
+                    Console.WriteLine("He smirk at your response. \nShaking his head as he walks away");
+                    break;
+                default:
+                    Console.WriteLine("You do nothing and continue onwards");
+                    break;
+            }
+        }
+
+        static void dialogueOptions3()
+        {
+            Console.WriteLine("\nWhat do you say? \n1. Thank you. Hope you are okay \n2. HA HA HA you Fool");
+            string playerResponse = Console.ReadLine();
+            switch (playerResponse.ToLower())
+            {
+                case "1":
+                    Console.WriteLine("'who me? yeah just wanted to give \nyou a headsup thats all' \nHe says as he walks on");
+                    break;
+                case "2":
+                    Console.WriteLine("He clench his fist at you for a second. \nBut realize you are not worth the effort ");
+                    break;
+                default:
+                    Console.WriteLine("You do nothing and continue onwards");
+                    break;
+            }
         }
 
     }
