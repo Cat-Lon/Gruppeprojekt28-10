@@ -929,33 +929,36 @@ namespace AdventurePals
         /************************ Monster Art ************************/
         private static void SlimeArt()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("");
-            Console.WriteLine("          //////////");
-            Console.WriteLine("       ///          //");
-            Console.WriteLine("   //                ///");
-            Console.WriteLine("    //////     `          // ///");
-            Console.WriteLine("      //     <o>     /        /");
-            Console.WriteLine("      //         ///       /   ////");
-            Console.WriteLine("       /   ///// / // <O>>      ///");
-            Console.WriteLine("       //          //     // ///");
-            Console.WriteLine("        ///         ///////    //   ");
-            Console.WriteLine("          ////       /         ///  ");
-            Console.WriteLine("            //     // /     ///  //");
-            Console.WriteLine("             /  ///   /////     //");
-            Console.WriteLine("             ///        /////");
+            Console.WriteLine("          //////////                     ");
+            Console.WriteLine("       ///          //                   ");
+            Console.WriteLine("   //                ///                 ");
+            Console.WriteLine("    //////     `          // ///         ");
+            Console.WriteLine("      //     <o>     /        /          ");
+            Console.WriteLine("      //         ///       /   ////      ");
+            Console.WriteLine("       /   ///// / // <O>>      ///      ");
+            Console.WriteLine("       //          //     // ///         ");
+            Console.WriteLine("        ///         ///////    //        ");
+            Console.WriteLine("          ////       /         ///       ");
+            Console.WriteLine("            //     // /     ///  //      ");
+            Console.WriteLine("             /  ///   /////     //       ");
+            Console.WriteLine("             ///        /////            ");
 
             Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         private static void GoblinArt()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("");
             Console.WriteLine("    ///////                                 ///////  ");
             Console.WriteLine("       // /////          /////        /////// //     ");
             Console.WriteLine("        //    //////   //     ////  //       //      ");
-            Console.WriteLine("         //         //     \\  ///     </  //      ");
+            Console.WriteLine("         //         //     \\  ///     </  //        ");
             Console.WriteLine("           ///      /       \\/           //         ");
-            Console.WriteLine("              // /      \\o>   <O//    //        ");
+            Console.WriteLine("              // /      \\o>   <O//    //            ");
             Console.WriteLine("                //// `                //             ");
             Console.WriteLine("                    //     -  //       /             ");
             Console.WriteLine("                      ///            //              ");
@@ -964,10 +967,12 @@ namespace AdventurePals
             Console.WriteLine("                            // //                    ");
             Console.WriteLine("                                                     ");
             Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         private static void OrcArt()
         {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("");
             Console.WriteLine("                  //////                     ");
             Console.WriteLine("              ////     //////                ");
@@ -984,6 +989,7 @@ namespace AdventurePals
             Console.WriteLine("           //                     //         ");
             Console.WriteLine("            ////////////////////             ");
             Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         /************* Battle Sounds ************/
@@ -991,8 +997,7 @@ namespace AdventurePals
         static void AttackSound()
         {
             Console.Beep(400, 350);
-            Console.Beep(600, 350);
-            
+            Console.Beep(600, 350);   
         }
 
         //RunAwaySound beeps
