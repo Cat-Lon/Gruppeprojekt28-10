@@ -65,12 +65,10 @@ namespace AdventurePals
 
         static void LevelUp()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("LEVEL UP. HVORDAN GØR HAN DET?!?! WOOOOOW!!");
+            Rainbow("LEVEL UP. HVORDAN GØR HAN DET?!?! WOOOOOW!!");
             playerLevel++;
             playerStrength += 1;
-            Console.WriteLine("du er nu level " + playerLevel);
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Rainbow("du er nu level " + playerLevel);
         }
 
         static int PlayerAttack()
@@ -79,16 +77,13 @@ namespace AdventurePals
         }
 
         private static void AdventurePals()
-        {//Episk tems sang          
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("             ______              ______   _   _   _______   _    _   ______    ______   _____              _        _____   ");
-            Console.WriteLine("     /\\     |  __  | \\ \\    / / |  ____| | \\ | | |__   __| | |  | | |  __  \\  |  ____| |  __ \\    /\\      | |      / ____|  ");
-            Console.WriteLine("    /  \\    | |  | |  \\ \\  / /  | |__    |  \\| |    | |    | |  | | | |__)  | | |__    | |__) |  /  \\     | |      | (___   ");
-            Console.WriteLine("   / /\\ \\   | |  | |   \\ \\/ /   |  __|   | . ` |    | |    | |  | | |  _   /  |  __|   |  ___/  / /\\ \\    | |      \\___  \\  ");
-            Console.WriteLine("  / ____ \\  | |__| |    \\  /    | |____  | |\\  |    | |    | |__| | | | \\ \\   | |____  | |     / ____ \\   | |____   ___) | ");
-            Console.WriteLine(" /_/    \\_\\ |______/     \\/     |______| |_| \\_|    |_|    \\_____// |_|  \\_\\  |______| |_|    /_/    \\_\\  \\______  |_____/  ");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            ThemeBeeps();
+        {//Episk tems sang
+            Rainbow("             ______              ______   _   _   _______   _    _   ______    ______   _____              _        _____   ");
+            Rainbow("     /\\     |  __  | \\ \\    / / |  ____| | \\ | | |__   __| | |  | | |  __  \\  |  ____| |  __ \\    /\\      | |      / ____|  ");
+            Rainbow("    /  \\    | |  | |  \\ \\  / /  | |__    |  \\| |    | |    | |  | | | |__)  | | |__    | |__) |  /  \\     | |      | (___   ");
+            Rainbow("   / /\\ \\   | |  | |   \\ \\/ /   |  __|   | . ` |    | |    | |  | | |  _   /  |  __|   |  ___/  / /\\ \\    | |      \\___  \\  ");
+            Rainbow("  / ____ \\  | |__| |    \\  /    | |____  | |\\  |    | |    | |__| | | | \\ \\   | |____  | |     / ____ \\   | |____   ___) | ");
+            Rainbow(" /_/    \\_\\ |______/     \\/     |______| |_| \\_|    |_|    \\_____// |_|  \\_\\  |______| |_|    /_/    \\_\\  \\______  |_____/  ");
         }
         private static void Menu()
         {
@@ -312,7 +307,7 @@ namespace AdventurePals
 
             Random random = new Random();
 
-            int randomNumber = random.Next(1, 5);
+            int randomNumber = random.Next(1, 4);
 
             switch (randomNumber)
             {
@@ -332,15 +327,6 @@ namespace AdventurePals
                     Console.WriteLine("\n'Sup' the person said");
                     Console.WriteLine("Carefull not to slip in the corpse of a creature back there as i did");
                     dialogueOptions3();
-                    break;
-
-                case 4:
-                    Console.WriteLine("\n Waddup?!");
-                    Console.WriteLine("You look like you could need some divine fucking juice");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("HP has been restored. You gained 100 HP!");
-                    playerHP += 100;
-                    Console.ForegroundColor = ConsoleColor.Gray;
                     break;
 
                 default:
@@ -376,7 +362,7 @@ namespace AdventurePals
                         case 1: //Chestplates
                             if (quality >= 80)
                             {
-                                Console.WriteLine("Terrions plate!");
+                                Rainbow("Terrions plate!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
                                 Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerChestArmor}");
@@ -455,7 +441,7 @@ namespace AdventurePals
                         case 2: //weapons
                             if (quality >= 80)
                             {
-                                Console.WriteLine("The Sword of Kalameet!");
+                                Rainbow("The Sword of Kalameet!");
                                 int rStat = rnd.Next(1, 21);
                                 weaponDamage = 25 + rStat;
                                 Console.WriteLine($"Attack: {weaponDamage}\nCurrent Weapon Damage: {playerWeaponDamage}");
@@ -536,7 +522,7 @@ namespace AdventurePals
                         case 3: //apples 
                             if (quality >= 80)
                             {
-                                Console.WriteLine("A golden apple!");
+                                Rainbow("A golden apple!");
                                 gApple++;
                                 break;
                             }
@@ -554,7 +540,7 @@ namespace AdventurePals
                         case 4: //helmets
                             if (quality >= 80)
                             {
-                                Console.WriteLine("The Helm of Light!");
+                                Rainbow("The Helm of Light!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
                                 Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerHeadArmor}");
@@ -634,7 +620,7 @@ namespace AdventurePals
                         case 5: //gauntlets
                             if (quality >= 80)
                             {
-                                Console.WriteLine("The Fists of God!");
+                                Rainbow("The Fists of God!");
                                 int rStat = rnd.Next(1, 21);
                                 armor = 25 + rStat;
                                 Console.WriteLine($"Armor: {armor}\nCurrent Armor: {playerFists}");
@@ -939,36 +925,33 @@ namespace AdventurePals
         /************************ Monster Art ************************/
         private static void SlimeArt()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("");
-            Console.WriteLine("          //////////                     ");
-            Console.WriteLine("       ///          //                   ");
-            Console.WriteLine("   //                ///                 ");
-            Console.WriteLine("    //////     `          // ///         ");
-            Console.WriteLine("      //     <o>     /        /          ");
-            Console.WriteLine("      //         ///       /   ////      ");
-            Console.WriteLine("       /   ///// / // <O>>      ///      ");
-            Console.WriteLine("       //          //     // ///         ");
-            Console.WriteLine("        ///         ///////    //        ");
-            Console.WriteLine("          ////       /         ///       ");
-            Console.WriteLine("            //     // /     ///  //      ");
-            Console.WriteLine("             /  ///   /////     //       ");
-            Console.WriteLine("             ///        /////            ");
+            Console.WriteLine("          //////////");
+            Console.WriteLine("       ///          //");
+            Console.WriteLine("   //                ///");
+            Console.WriteLine("    //////     `          // ///");
+            Console.WriteLine("      //     <o>     /        /");
+            Console.WriteLine("      //         ///       /   ////");
+            Console.WriteLine("       /   ///// / // <O>>      ///");
+            Console.WriteLine("       //          //     // ///");
+            Console.WriteLine("        ///         ///////    //   ");
+            Console.WriteLine("          ////       /         ///  ");
+            Console.WriteLine("            //     // /     ///  //");
+            Console.WriteLine("             /  ///   /////     //");
+            Console.WriteLine("             ///        /////");
 
             Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         private static void GoblinArt()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("");
             Console.WriteLine("    ///////                                 ///////  ");
             Console.WriteLine("       // /////          /////        /////// //     ");
             Console.WriteLine("        //    //////   //     ////  //       //      ");
-            Console.WriteLine("         //         //     \\  ///     </  //        ");
+            Console.WriteLine("         //         //     \\  ///     </  //      ");
             Console.WriteLine("           ///      /       \\/           //         ");
-            Console.WriteLine("              // /      \\o>   <O//    //            ");
+            Console.WriteLine("              // /      \\o>   <O//    //        ");
             Console.WriteLine("                //// `                //             ");
             Console.WriteLine("                    //     -  //       /             ");
             Console.WriteLine("                      ///            //              ");
@@ -977,12 +960,10 @@ namespace AdventurePals
             Console.WriteLine("                            // //                    ");
             Console.WriteLine("                                                     ");
             Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         private static void OrcArt()
         {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("");
             Console.WriteLine("                  //////                     ");
             Console.WriteLine("              ////     //////                ");
@@ -999,7 +980,6 @@ namespace AdventurePals
             Console.WriteLine("           //                     //         ");
             Console.WriteLine("            ////////////////////             ");
             Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         /************* Battle Sounds ************/
@@ -1007,7 +987,8 @@ namespace AdventurePals
         static void AttackSound()
         {
             Console.Beep(400, 350);
-            Console.Beep(600, 350);   
+            Console.Beep(600, 350);
+            
         }
 
         //RunAwaySound beeps
@@ -1053,24 +1034,8 @@ namespace AdventurePals
         {
             Console.Beep(500, 300);
             Console.Beep(800, 300);
-            Console.Beep(850, 300);  
-        }
-
-        static void ThemeBeeps()
-        {
-            Console.Beep(200, 800);
-            Console.Beep(200, 300);
-            Console.Beep(200, 250);
-            Console.Beep(250, 250);
-            Console.Beep(200, 250);
-            Console.Beep(250, 250);
-            Console.Beep(200, 600);
-            Console.Beep(250, 250);
-            Console.Beep(200, 250);
-            Console.Beep(250, 550);
-            Console.Beep(280, 500);
-            Console.Beep(300, 350);
-            Console.Beep(200, 600);
+            Console.Beep(850, 300);
+            
         }
 
         /*****************Dialogue Options******************/
@@ -1127,6 +1092,69 @@ namespace AdventurePals
                     break;
             }
         }
-
+        static void Rainbow(string text)
+        {
+            int i = 0;
+            Random rnd = new Random();
+            char[] rText = text.ToCharArray();
+            foreach(char element in rText)
+            {
+                int color = rnd.Next(1, 8);
+                switch (color)
+                {
+                    case 1:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 5:
+                        { 
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                            Console.Write(rText[i]);
+                            i++;
+                            break;
+                        }
+                    }
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+            Console.WriteLine();
+            }
+        }
     }
-}
