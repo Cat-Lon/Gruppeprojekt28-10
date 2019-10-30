@@ -197,22 +197,22 @@ namespace AdventurePals
                 choice = false;
                 string input = Console.ReadLine();
 
-                if (input.ToLower().Trim() == "west")
+                if (input.ToLower().Trim() == "west" || input.ToLower().Trim() == "w")
                 {
                     Console.WriteLine("You go west");
                     AdventureObstacle();
                 }
-                else if (input.ToLower().Trim() == "north")
+                else if (input.ToLower().Trim() == "north" || input.ToLower().Trim() == "n")
                 {
                     Console.WriteLine("You go north");
                     AdventureObstacle();
                 }
-                else if (input.ToLower().Trim() == "south")
+                else if (input.ToLower().Trim() == "south" || input.ToLower().Trim() == "s")
                 {
                     Console.WriteLine("You go south");
                     AdventureObstacle();
                 }
-                else if (input.ToLower().Trim() == "east")
+                else if (input.ToLower().Trim() == "east" || input.ToLower().Trim() == "e")
                 {
                     Console.WriteLine("You go east");
                     AdventureObstacle();
